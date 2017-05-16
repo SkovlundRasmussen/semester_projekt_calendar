@@ -1,4 +1,29 @@
 *{
-    padding:0;
-    margin:0;
+    padding:0px;
+    margin:0px;
+}
+
+#customerID-label{
+    min-width: 100px;
+}
+#customerID{
+
+}
+#first-name-label{
+    width: 100px;
+}
+#first-name{
+
+}
+#last-name-label{
+    width: 100px;
+}
+#last-name{
+
+}
+#phone-number-label{
+    width: 100px;
+}
+#phone-number{
+
 }
