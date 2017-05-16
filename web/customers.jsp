@@ -17,7 +17,7 @@
 <div id="wrapper">
 
 <h1>Opret ny kunde</h1>
-<form> <%-- Set action --%>
+<form action="submit" method="post"> <%-- Set action --%>
     <div>
         <label for="customerID" id="customerID-label">Kunde ID:</label>
         <label type="text" name="userID" width="30" id="customerID"/> <%-- value="AI ID" --%>
@@ -35,7 +35,7 @@
         <input type="text" name="loginname" id="phone-number" width="30" maxlength="8" minlength="8" placeholder="22446688"/>
     </div>
 
-    <input type="submit" value="Opret kunde"/>
+    <input type="submit" value="Opret"/>
 </form>
 
 </div>

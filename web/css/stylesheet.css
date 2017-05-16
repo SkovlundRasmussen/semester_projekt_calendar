@@ -1,21 +1,29 @@
 *{
-    padding:0px;
-    margin:0px;
-}
+     padding:0px;
+     margin:0px;
+ }
 
-#wrapper, header, footer
-{
-    width:1200px;
-    margin:0 auto;
+#customerID-label{
+    min-width: 100px;
 }
+#customerID{
 
-form label
-{
-    display:inline-block;
-    width:120px;
 }
+#first-name-label{
+    width: 100px;
+}
+#first-name{
 
-input
-{
-    width:120px;
+}
+#last-name-label{
+    width: 100px;
+}
+#last-name{
+
+}
+#phone-number-label{
+    width: 100px;
+}
+#phone-number{
+
 }
