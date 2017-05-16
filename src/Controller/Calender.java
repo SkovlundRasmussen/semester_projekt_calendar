@@ -1,10 +1,9 @@
 package Controller;
-// TEST 1s
-// TEst 2
-// test 3
 
-
-public class User {
+/**
+ * Created by Jamie L. Ramsgaard on 5/16/2017.
+ */
+public class Calender {
     int userID;
     String userName;
     String userPassword;
@@ -14,6 +13,10 @@ public class User {
 
     public int getUserID() {
         return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     public String getUserName() {
@@ -42,5 +45,9 @@ public class User {
 
     public String getUserTypeName() {
         return userTypeName;
+    }
+
+    public void setUserTypeName(String userTypeName) {
+        this.userTypeName = userTypeName;
     }
 }
