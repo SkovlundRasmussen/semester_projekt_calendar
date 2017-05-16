@@ -2,12 +2,12 @@ package Controller;
 
 
 public class User {
-    int userID;
-    String userName;
-    String userPassword;
+    private int userID;
+    private String userName;
+    private String userPassword;
     //DateTime userDate;
-    int userType;
-    String userTypeName;
+    private int userType;
+    private String userTypeName;
 
     public int getUserID() {
         return userID;
