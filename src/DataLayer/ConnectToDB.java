@@ -6,10 +6,6 @@ import java.sql.*;
  */
 public class ConnectToDB
 {
-    public static void main(String[] args)
-    {
-        connectToBD("admin", "1234");
-    }
     public static boolean connectToBD(String sUsername, String sUserPassword)
     {
         boolean bResult = false;
