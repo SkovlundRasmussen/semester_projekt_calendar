@@ -9,10 +9,12 @@
 <html>
 <head>
     <title>Kunder</title>
+
 </head>
 <body>
 <%@include file="includes/header.jsp" %>
 </body>
+<div id="wrapper">
 
 <h1>Opret ny kunde</h1>
 <form> <%-- Set action --%>
@@ -36,5 +38,6 @@
     <input type="submit" value="Opret kunde"/>
 </form>
 
+</div>
 
 </html>
