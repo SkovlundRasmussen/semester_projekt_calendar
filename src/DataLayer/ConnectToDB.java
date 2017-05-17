@@ -4,6 +4,8 @@ import java.sql.*;
 /**
  * Created by Toldam on 16-05-2017.
  */
+
+//push test
 public class ConnectToDB
 {
     public static boolean connectToBD(String sUsername, String sUserPassword)
