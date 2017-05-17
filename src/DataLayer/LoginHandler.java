@@ -1,8 +1,79 @@
 package DataLayer;
 
+import java.sql.*;
+
 /**
  * Created by Tolda on 16-05-2017.
  */
-public class LoginHandler
-{
+public class LoginHandler {
+    // JDBC driver name and database URL
+    //static final String JDBC_DRIVER = "com.mysql.jdbc.driver";
+    //static final String DB_URL = "jdbc:mysql://localhost/webapptoturial";
+
+    // Database credentials
+    //static final String USER = "webappuser";
+    //static final String PASS = "test123";
+
+    public boolean isValidUserLogin(String sUSerName, String sUserPassword){
+
+        boolean isValidUser = false;
+
+        Connection conn = null;
+        Statement stmt = null;
+        String sql = "";
+        try{
+            //STEP 2: Register JDBC driver
+            Class.forName("com.mysql.jdbc.Driver");
+
+            //STEP 3: Open a connection
+            System.out.println("Connecting to database...");
+
+            String DB_Url = System.getProperty("JDBC_CONNECTION_STRING");
+            String DB_Password = "&password=" + System.getProperty("JDBC_PASSWORD");
+            System.out.println(DB_Url + DB_Password);
+            conn = DriverManager.getConnection(DB_Url + DB_Password);
+
+            //STEP 4: Execute a query
+            System.out.println("Creating statement...");
+            stmt = conn.createStatement();
+
+
+            sql = "SELECT * FROM users WHERE user_name = \"" +
+                    sUSerName + "\" AND user_password = \"" + sUserPassword + "\"";
+            System.out.println(sql);
+
+            ResultSet rs = stmt.executeQuery(sql);
+
+            //STEP 5: Extract data from result set
+            if (rs.next()){
+                isValidUser = true;
+            }
+            //STEP 6: Clean-up environment
+            rs.close();
+            stmt.close();
+            conn.close();
+        }catch(SQLException se){
+            //Handle errors for JDBC
+            se.printStackTrace();
+        }catch(Exception e){
+            //Handle errors for Class.forName
+            e.printStackTrace();
+        }finally{
+            //finally block used to close resources
+            try{
+                if(stmt!=null)
+                    stmt.close();
+            }catch(SQLException se2){
+            }// nothing we can do
+            try{
+                if(conn!=null)
+                    conn.close();
+            }catch(SQLException se){
+                se.printStackTrace();
+            }//end finally try
+        }//end try
+        System.out.println("Goodbye!");
+
+        return isValidUser;
+    }
 }
