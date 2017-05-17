@@ -1,5 +1,7 @@
 package Controller;
 
+import DataLayer.CustomerHandler;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,4 +16,10 @@ public class Customers {
             return customerList;
         }
 
+        public void newCustomer(String firstName, String lastName, String phoneNumber)
+        {
+            CustomerHandler customerHandler = new CustomerHandler();
+
+            customerHandler.newCustomer(firstName, lastName, phoneNumber);
+        }
 }

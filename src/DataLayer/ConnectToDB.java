@@ -8,11 +8,9 @@ import java.sql.*;
 //push test
 public class ConnectToDB
 {
-    public static boolean connectToBD(String sUsername, String sUserPassword)
+    public static Connection getConnection()
     {
-        boolean bResult = false;
         Connection conn = null;
-        Statement stmt = null;
 
         try
         {
@@ -27,30 +25,7 @@ public class ConnectToDB
 
             conn = DriverManager.getConnection(DB_Url + DB_Pass);
 
-            //
-            System.out.println("Creating statement...");
-            stmt = conn.createStatement();
-
-            // prevent sql inject
-            String selectSQL = "SELECT * FROM users WHERE user_name = ? AND user_pass = ?";
-            PreparedStatement preparedStatement = conn.prepareStatement(selectSQL);
-            preparedStatement.setString(1, sUsername);
-            preparedStatement.setString(2, sUserPassword);
-
-            ResultSet rs = preparedStatement.executeQuery();
-
-            if (rs.next())
-            {
-                bResult = true;
-            }
-            else
-            {
-                bResult = false;
-            }
-
-            rs.close();
-            stmt.close();
-            conn.close();
+            return conn;
 
         }
         catch(SQLException se)
@@ -63,28 +38,9 @@ public class ConnectToDB
             //Handle errors for Class.forName
             e.printStackTrace();
         }
-        finally
-        {
-            //finally block used to close resources
-            try
-            {
-                if (stmt != null)
-                    stmt.close();
-            } catch (SQLException se2)
-            {
-                // nothing we can do
-            }
-            try
-            {
-                if (conn != null)
-                    conn.close();
-            } catch (SQLException se)
-            {
-                se.printStackTrace(); //end finally try
-            }
-        }
-        System.out.println("Goodbye!");
-        return bResult;
+
+
+        return null;
     }
 
 }
