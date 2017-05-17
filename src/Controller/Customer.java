@@ -4,10 +4,18 @@ package Controller;
  * Created by Jamie L. Ramsgaard on 5/16/2017.
  */
 public class Customer {
-    int customerID;
-    String customerName;
-    String customerLastname;
-    String customerPhoneNumber;
+    private int customerID;
+    private String customerName;
+    private String customerLastname;
+    private String customerPhoneNumber;
+
+    public Customer(int customerID, String customerName, String customerLastname, String customerPhoneNumber)
+    {
+        this.customerID = customerID;
+        this.customerName = customerName;
+        this.customerLastname = customerLastname;
+        this.customerPhoneNumber = customerPhoneNumber;
+    }
 
     public int getCustomerID() {
         return customerID;
