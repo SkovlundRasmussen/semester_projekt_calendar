@@ -1,29 +1,41 @@
 *{
      padding:0px;
      margin:0px;
+
  }
 
-#customerID-label{
-    min-width: 100px;
+#wrapper, header, footer{
+    width:1200px;
+    margin:0 auto;
+    box-sizing: border-box;
+    border:1px solid black;
 }
-#customerID{
+
+header
+{
+    margin-top:50px;
+}
+
+#main_nav
+{
 
 }
-#first-name-label{
-    width: 100px;
-}
-#first-name{
 
+#main_nav ul
+{
+    width:100%;
 }
-#last-name-label{
-    width: 100px;
-}
-#last-name{
 
+#main_nav ul li
+{
+    display:inline-block;
+    height:30px;
+    margin:0 20px;
 }
-#phone-number-label{
-    width: 100px;
-}
-#phone-number{
 
+#main_nav ul li a
+{
+    line-height: 30px;
+    text-decoration: none;
 }
+

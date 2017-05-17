@@ -8,13 +8,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+
+
+
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/stylesheet.css" />
     <title>Title</title>
 </head>
 <body>
     <header>
-        <nav>
+        <nav id="main_nav">
             <ul>
+                <li><a href="../index.jsp">Home</a></li>
                 <li><a href="../customers.jsp">Ny kunde</a></li>
                 <li><a href="../customers.jsp">Alle kunder</a></li>
                 <li><a href="../user.jsp">Ny bruger</a></li>
