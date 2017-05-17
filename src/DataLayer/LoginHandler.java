@@ -39,7 +39,7 @@ public class LoginHandler {
 
 
             sql = "SELECT * FROM users WHERE user_name = \"" +
-                    sUSerName + "\" AND user_password = \"" + sUserPassword + "\"";
+                    sUSerName + "\" AND user_pass = \"" + sUserPassword + "\"";
             System.out.println(sql);
 
             ResultSet rs = stmt.executeQuery(sql);
