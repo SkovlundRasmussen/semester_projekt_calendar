@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>Servlet</servlet-name>
-        <servlet-class>Servlet.Servlet</servlet-class>
+        <servlet-class>Servlet.LoginServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
@@ -17,13 +17,24 @@
 
   <servlet>
         <servlet-name>CustomerServlet</servlet-name>
-        <servlet-class>Servlet.CustomerServlet</servlet-class>
+        <servlet-class>Servlet.CreateCustomerServlet</servlet-class>
       <load-on-startup>2</load-on-startup>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>CustomerServlet</servlet-name>
         <url-pattern>/customers</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>Servlet.CreateUserServlet</servlet-class>
+        <load-on-startup>3</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/users</url-pattern>
     </servlet-mapping>
 
 </web-app>

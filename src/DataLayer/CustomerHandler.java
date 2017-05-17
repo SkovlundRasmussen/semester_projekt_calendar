@@ -15,7 +15,7 @@ public class CustomerHandler {
         try{
         conn = connectToDB.getConnection();
 
-        preparedStatement	=	conn.prepareStatement(sql);
+        preparedStatement =	conn.prepareStatement(sql);
 
             preparedStatement.setString(1, firstName);
             preparedStatement.setString(2, lastName);
@@ -24,13 +24,14 @@ public class CustomerHandler {
             preparedStatement.executeUpdate();
 
             System.out.println("UPDATE");
-        preparedStatement.close();
-        conn.close();
-
+            preparedStatement.close();
+            conn.close();
         }
+
        catch (SQLException e) {
             e.printStackTrace();
         }
+
         finally {
 
             try

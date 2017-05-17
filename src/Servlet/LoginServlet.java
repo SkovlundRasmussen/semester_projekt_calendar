@@ -8,7 +8,7 @@ import java.io.IOException;
  * Created by Tolda on 16-05-2017.
  */
 @WebServlet(name = "Servlet")
-public class Servlet extends javax.servlet.http.HttpServlet
+public class LoginServlet extends javax.servlet.http.HttpServlet
 {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException
     {

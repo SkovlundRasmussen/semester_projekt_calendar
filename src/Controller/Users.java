@@ -1,18 +1,30 @@
 package Controller;
 
+import DataLayer.UserHandler;
+
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by Jamie L. Ramsgaard on 5/16/2017.
+ * Created by Nichlas B. Toldam on 5/16/2017.
  */
 
 //Nichlas Buer Toldam
-public class Users {
-    private List getUserList(){
+public class Users
+{
+    private List getUserList()
+    {
         List<User> userList = new LinkedList<>();
 
         return userList;
+    }
+
+    public void newUser(String userTypeId, String userName, String userPass)
+    {
+        UserHandler userHandler = new UserHandler();
+
+        userHandler.newUser(userTypeId, userName, userPass);
+
     }
 
 
