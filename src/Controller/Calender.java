@@ -1,15 +1,28 @@
 package Controller;
 
+import java.sql.Time;
+
 /**
  * Created by Jamie L. Ramsgaard on 5/16/2017.
  */
 public class Calender {
-    int userID;
-    String userName;
-    String userPassword;
-    //DateTime userDate;
-    int userType;
-    String userTypeName;
+    private int userID;
+    private String userName;
+    private String userPassword;
+    private Time userDate;
+    private int userType;
+    private String userTypeName;
+
+    public Calender(int userID, String userName, String userPassword, Time userDate, int userType, String userTypeName)
+    {
+        this.userID = userID;
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.userDate = userDate;
+        this.userType = userType;
+        this.userTypeName = userTypeName;
+    }
+
 
     public int getUserID() {
         return userID;

@@ -11,6 +11,16 @@ public class User {
     private int userType;
     private String userTypeName;
 
+    public User(int userID, String userName, String userPassword, Date dateTime, int userType, String userTypeName)
+    {
+        this.userID = userID;
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.dateTime = dateTime;
+        this.userType = userType;
+        this.userTypeName = userTypeName;
+    }
+
     public int getUserID() {
         return userID;
     }
