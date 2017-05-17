@@ -11,6 +11,16 @@
     <title>Title</title>
 </head>
 <body>
+<h1>Welcome. Please login</h1>
+
+<form action="/login" method="post">
+
+    login-name: <input type="text" name="loginname" width="30"/>
+    password: <input type="password" name="password" width="10"/>
+    <input type="submit" value="login"/>
+</form>
+
+<p style="color:red;">${errorMessage}</p>
 
 </body>
 </html>
