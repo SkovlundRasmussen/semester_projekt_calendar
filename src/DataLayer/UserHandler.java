@@ -10,7 +10,7 @@ public class UserHandler
 {
     ConnectToDB connectToDB = new ConnectToDB();
 
-    public void newUser(String userTypeId, String userName, String userPass)
+    public void newUser(String userName, String userPass)
     {
         PreparedStatement preparedStatement = null;
         Connection conn = null;
@@ -24,7 +24,7 @@ public class UserHandler
             preparedStatement = conn.prepareStatement(sql);
 
 
-            preparedStatement.setString(1, userTypeId);
+            preparedStatement.setInt(1, 2);
             preparedStatement.setString(2, userName);
             preparedStatement.setString(3, userPass);
 

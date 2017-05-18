@@ -19,11 +19,11 @@ public class CreateUserServlet extends HttpServlet
         System.out.println("CreateUserServlet loading");
         Users users = new Users();
 
-        request.setAttribute("userTypeId", request.getParameter("userTypeId"));
+        //request.setAttribute("userTypeId", request.getParameter("userTypeId"));
         request.setAttribute("userName", request.getParameter("userName"));
         request.setAttribute("userPass", request.getParameter("userPass"));
 
-        users.newUser(request.getParameter("userTypeId"), request.getParameter("userName"), request.getParameter("userPass"));
+        users.newUser(request.getParameter("userName"), request.getParameter("userPass"));
         request.getRequestDispatcher("/user.jsp").forward(request, response);
     }
 

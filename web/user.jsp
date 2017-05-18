@@ -29,11 +29,6 @@
            </div>
             --%>
 
-                <div>
-                    <label for="user-id-label">ID 1 or 2</label>
-                    <input type="text" name="userTypeId" width="30" placeholder="id" id="user-id-label" maxlength="1"/>
-                </div>
-
            <div>
                    <label for="user-name-label">Brugernavn:</label>
                    <input type="text" name="userName" width="30" placeholder="Brugernavn" id="user-name-label"/>

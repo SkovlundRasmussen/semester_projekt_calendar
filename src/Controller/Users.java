@@ -19,11 +19,11 @@ public class Users
         return userList;
     }
 
-    public void newUser(String userTypeId, String userName, String userPass)
+    public void newUser(String userName, String userPass)
     {
         UserHandler userHandler = new UserHandler();
 
-        userHandler.newUser(userTypeId, userName, userPass);
+        userHandler.newUser(userName, userPass);
 
     }
 
