@@ -7,73 +7,52 @@ import java.sql.*;
  * Created by Tolda on 16-05-2017.
  */
 public class LoginHandler {
-    // JDBC driver name and database URL
-    //static final String JDBC_DRIVER = "com.mysql.jdbc.driver";
-    //static final String DB_URL = "jdbc:mysql://localhost/webapptoturial";
 
-    // Database credentials
-    //static final String USER = "webappuser";
-    //static final String PASS = "test123";
+    DatabaseHandler databaseHandler = new DatabaseHandler();
+
+
 
     public boolean isValidUserLogin(String sUSerName, String sUserPassword){
 
         boolean isValidUser = false;
 
+        PreparedStatement preparedStatement = null;
         Connection conn = null;
         Statement stmt = null;
-        String sql = "";
-        try{
-            //STEP 2: Register JDBC driver
-            Class.forName("com.mysql.jdbc.Driver");
 
-            //STEP 3: Open a connection
-            System.out.println("Connecting to database...");
+        String sql = "SELECT * FROM users WHERE user_name = ? AND user_pass = ?";
 
-            String DB_Url = System.getProperty("JDBC_CONNECTION_STRING");
-            String DB_Password = "&password=" + System.getProperty("JDBC_PASSWORD");
-            System.out.println(DB_Url + DB_Password);
-            conn = DriverManager.getConnection(DB_Url + DB_Password);
+        try
+        {
+            conn = databaseHandler.getConnection();
 
-            //STEP 4: Execute a query
-            System.out.println("Creating statement...");
-            stmt = conn.createStatement();
+            preparedStatement = conn.prepareStatement(sql);
 
 
-            sql = "SELECT * FROM users WHERE user_name = \"" +
-                    sUSerName + "\" AND user_pass = \"" + sUserPassword + "\"";
-            System.out.println(sql);
+            preparedStatement.setString(1, sUSerName);
+            preparedStatement.setString(2, sUserPassword);
 
-            ResultSet rs = stmt.executeQuery(sql);
+            ResultSet rs = preparedStatement.executeQuery();
 
-            //STEP 5: Extract data from result set
+
             if (rs.next()){
                 isValidUser = true;
             }
-            //STEP 6: Clean-up environment
-            rs.close();
-            stmt.close();
+
+            System.out.println("UPDATE");
+            preparedStatement.close();
             conn.close();
-        }catch(SQLException se){
-            //Handle errors for JDBC
-            se.printStackTrace();
-        }catch(Exception e){
-            //Handle errors for Class.forName
+        }
+
+        catch (SQLException e)
+        {
             e.printStackTrace();
-        }finally{
-            //finally block used to close resources
-            try{
-                if(stmt!=null)
-                    stmt.close();
-            }catch(SQLException se2){
-            }// nothing we can do
-            try{
-                if(conn!=null)
-                    conn.close();
-            }catch(SQLException se){
-                se.printStackTrace();
-            }//end finally try
-        }//end try
-        System.out.println("Goodbye!");
+        }
+
+        finally
+        {
+            databaseHandler.sqlEx(preparedStatement, conn);
+        }
 
         return isValidUser;
     }

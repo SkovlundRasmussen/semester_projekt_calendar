@@ -25,6 +25,8 @@
                 <li><a href="../user.jsp">Alle brugere</a></li>
                 <li><a href="../create_appointment.jsp">Ny tid </a></li>
                 <li><a href="">Logud</a></li>
+
+
             </ul>
         </nav>
     </header>

@@ -11,6 +11,11 @@ public class Appointment {
     private int customerID;
     private int userID;
 
+    public void newAppointment(Date appointmentStartDate, String appointmentSessionLength, String appointmentNote)
+    {
+
+    }
+
     public int getAppointmentID() {
         return appointmentID;
     }
