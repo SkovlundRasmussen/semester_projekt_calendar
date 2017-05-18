@@ -23,6 +23,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet
     public void doPostLogin(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)throws javax.servlet.ServletException, IOException
 
     {
+        //Jamie123
         Login login = new Login();
 
         request.setAttribute("username", request.getParameter("loginname"));
