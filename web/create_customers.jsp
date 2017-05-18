@@ -44,6 +44,7 @@
     </div>
 
     <input type="submit" value="Opret"/>
+    <p style="color: red;">${errorMessage}</p>
 </form>
 
 </div>

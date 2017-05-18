@@ -22,13 +22,6 @@
 
         <form action="/users" method="post">
 
-            <%--
-           <div>
-           <label for="user-id-label">Bruger ID:</label>
-           <label type="text" name="userTypeId" width="30" id="user-id-label"/>
-           </div>
-            --%>
-
            <div>
                    <label for="user-name-label">Brugernavn:</label>
                    <input type="text" name="userName" width="30" placeholder="Brugernavn" id="user-name-label"/>
@@ -45,9 +38,14 @@
            <input type="password" name="userPass2" width="30" id="second-password-label"/>
        </div>
        --%>
+
+
             <div>
                 <input type="submit" value="Opret"/>
             </div>
+
+
         </form>
+
     </div>
 </html>

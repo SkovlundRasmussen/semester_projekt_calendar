@@ -18,8 +18,24 @@ public class Customers {
 
         public void newCustomer(String firstName, String lastName, String phoneNumber)
         {
+            boolean error = false;
             CustomerHandler customerHandler = new CustomerHandler();
 
-            customerHandler.newCustomer(firstName, lastName, phoneNumber);
+            if (ErrorHandler.IsAValidNumber(phoneNumber))
+            {
+                error = true;
+            }
+            if (ErrorHandler.IsAValidName(firstName))
+            {
+                error = true;
+            }
+            if (ErrorHandler.IsAValidName(lastName))
+            {
+                error = true;
+            }
+            if (!error)
+            {
+                customerHandler.newCustomer(firstName, lastName, phoneNumber);
+            }
         }
 }
