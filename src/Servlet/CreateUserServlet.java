@@ -24,7 +24,7 @@ public class CreateUserServlet extends HttpServlet
         request.setAttribute("userPass", request.getParameter("userPass"));
 
         users.newUser(request.getParameter("userName"), request.getParameter("userPass"));
-        request.getRequestDispatcher("/createUser.jsp").forward(request, response);
+        request.getRequestDispatcher("/create_user.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
