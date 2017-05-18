@@ -22,7 +22,7 @@ public class CreateCustomerServlet extends HttpServlet {
         request.setAttribute("phoneNumber", request.getParameter("phoneNumber"));
 
         customers.newCustomer(request.getParameter("firstName"), request.getParameter("lastName"), request.getParameter("phoneNumber"));
-        request.getRequestDispatcher("/customers.jsp").forward(request, response);
+        request.getRequestDispatcher("/createCustomers.jsp").forward(request, response);
 
        /* if (login.isValidUserCredentials(request.getParameter("loginname"), request.getParameter("password"))) {
             request.getRequestDispatcher("/index.jsp").forward(request, response);

@@ -6,7 +6,7 @@ import java.sql.*;
  */
 
 //push test
-public class ConnectToDB
+public class DatabaseHandler
 {
     public static Connection getConnection()
     {
@@ -41,6 +41,23 @@ public class ConnectToDB
 
 
         return null;
+    }
+
+    public void sqlEx(PreparedStatement preparedStatement, Connection conn)
+    {
+        try
+        {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -8,7 +8,7 @@ import java.sql.*;
  */
 public class UserHandler
 {
-    ConnectToDB connectToDB = new ConnectToDB();
+    DatabaseHandler databaseHandler = new DatabaseHandler();
 
     public void newUser(String userName, String userPass)
     {
@@ -19,7 +19,7 @@ public class UserHandler
 
         try
         {
-            conn = connectToDB.getConnection();
+            conn = databaseHandler.getConnection();
 
             preparedStatement = conn.prepareStatement(sql);
 
@@ -43,22 +43,7 @@ public class UserHandler
 
         finally
         {
-            try
-            {
-                if (preparedStatement != null)
-                {
-                    preparedStatement.close();
-                }
-
-                if (conn != null)
-                {
-                    conn.close();
-                }
-            }
-            catch (SQLException e)
-            {
-                e.printStackTrace();
-            }
+            databaseHandler.sqlEx(preparedStatement, conn);
         }
     }
 }
