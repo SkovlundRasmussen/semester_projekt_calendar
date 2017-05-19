@@ -1,6 +1,5 @@
 package Servlet;
 
-import AppLayer.Login;
 import Controller.Login;
 
 import javax.servlet.ServletException;
