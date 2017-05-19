@@ -50,4 +50,16 @@
         <url-pattern>/show_customers</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Appointment</servlet-name>
+        <servlet-class>Servlet.CreateAppoitmentServlet</servlet-class>
+        <load-on-startup>4</load-on-startup>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>Appointment</servlet-name>
+        <url-pattern>/appointment</url-pattern>
+    </servlet-mapping>
+
 </web-app>

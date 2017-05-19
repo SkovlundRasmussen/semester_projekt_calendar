@@ -16,7 +16,7 @@ public class AppointmentHandler
         PreparedStatement preparedStatement = null;
         Connection conn = null;
 
-        String sql = "INSERT INTO appointments (app_start_date, app_session_length, app_note) VALUES (2017-05-17 13:38:49, ?, ?)";
+        String sql = "INSERT INTO appointments (app_start_date, app_session_length, app_note) VALUES ('2017-05-17 13:38:49', ?, ?)";
 
         try {
             conn = databaseHandler.getConnection();
@@ -24,8 +24,8 @@ public class AppointmentHandler
             preparedStatement = conn.prepareStatement(sql);
 
             //preparedStatement.setDate(1, appointmentStartDate);
-            preparedStatement.setString(2, appointmentSessionLength);
-            preparedStatement.setString(3, appointmentNote);
+            preparedStatement.setString(1, appointmentSessionLength);
+            preparedStatement.setString(2, appointmentNote);
 
             preparedStatement.executeUpdate();
 
