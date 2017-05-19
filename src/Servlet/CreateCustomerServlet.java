@@ -14,6 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "CreateCustomerServlet")
 public class CreateCustomerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         System.out.println("SERVLET!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         Customers customers = new Customers();
 
@@ -24,13 +25,6 @@ public class CreateCustomerServlet extends HttpServlet {
         customers.newCustomer(request.getParameter("firstName"), request.getParameter("lastName"), request.getParameter("phoneNumber"));
         request.getRequestDispatcher("/create_customers.jsp").forward(request, response);
 
-       /* if (login.isValidUserCredentials(request.getParameter("loginname"), request.getParameter("password"))) {
-            request.getRequestDispatcher("/index.jsp").forward(request, response);
-        } else{
-            request.setAttribute("errorMessage", "Invalid login and password. Try again");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
-
-        }*/
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

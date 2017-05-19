@@ -23,7 +23,7 @@
 
     <servlet-mapping>
         <servlet-name>CustomerServlet</servlet-name>
-        <url-pattern>/customers</url-pattern>
+        <url-pattern>/create_customers</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -35,6 +35,17 @@
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/users</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ShowCustomer</servlet-name>
+        <servlet-class>Servlet.ShowCustomerServlet</servlet-class>
+        <load-on-startup>4</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ShowCustomer</servlet-name>
+        <url-pattern>/show_customers</url-pattern>
     </servlet-mapping>
 
 </web-app>
