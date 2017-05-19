@@ -19,7 +19,7 @@
 <div id="wrapper">
 
 <h1>Opret ny kunde</h1>
-<form action="/customers" method="post"> <%-- Set action --%>
+<form action="/create_customers" method="post"> <%-- Set action --%>
 
     <%--
     <div>
@@ -44,6 +44,7 @@
     </div>
 
     <input type="submit" value="Opret"/>
+    <p style="color: red;">${errorMessage}</p>
 </form>
 
 </div>

@@ -4,7 +4,7 @@ import java.sql.*;
 
 
 /**
- * Created by Nichlas B. Toldamon 17-05-2017.
+ * Created by Nichlas B. Toldam 17-05-2017.
  */
 public class UserHandler
 {
@@ -20,9 +20,7 @@ public class UserHandler
         try
         {
             conn = databaseHandler.getConnection();
-
             preparedStatement = conn.prepareStatement(sql);
-
 
             preparedStatement.setInt(1, 2);
             preparedStatement.setString(2, userName);

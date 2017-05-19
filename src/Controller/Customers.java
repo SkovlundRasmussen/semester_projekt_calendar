@@ -2,24 +2,43 @@ package Controller;
 
 import DataLayer.CustomerHandler;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Jamie L. Ramsgaard on 5/16/2017.
- */
 public class Customers {
 
-        private List getCustomerList(){
-            List<User> customerList = new LinkedList<>();
+        public List<Customer> getCustomers(){
+            CustomerHandler customerHandler = new CustomerHandler();
+            List<Customer> customers = new ArrayList<Customer>();
 
-            return customerList;
+            customers = customerHandler.getCustomers();
+            return customers;
+
+
         }
 
         public void newCustomer(String firstName, String lastName, String phoneNumber)
         {
+            boolean error = false;
             CustomerHandler customerHandler = new CustomerHandler();
 
-            customerHandler.newCustomer(firstName, lastName, phoneNumber);
+            if (ErrorHandler.IsAValidNumber(phoneNumber))
+            {
+                error = true;
+            }
+            if (ErrorHandler.IsAValidName(firstName))
+            {
+                error = true;
+            }
+            if (ErrorHandler.IsAValidName(lastName))
+            {
+                error = true;
+            }
+            if (!error)
+            {
+                customerHandler.newCustomer(firstName, lastName, phoneNumber);
+            }
         }
+
+
 }
