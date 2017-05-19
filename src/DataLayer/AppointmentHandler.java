@@ -3,6 +3,7 @@ package DataLayer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -12,20 +13,20 @@ public class AppointmentHandler
 {
     DatabaseHandler databaseHandler = new DatabaseHandler();
 
-    public void newAppointment (String appointmentSessionLength, String appointmentNote) {
+    public void newAppointment (String appointmentStartDate, String appointmentSessionLength, String appointmentNote) {
         PreparedStatement preparedStatement = null;
         Connection conn = null;
 
-        String sql = "INSERT INTO appointments (app_start_date, app_session_length, app_note) VALUES ('2017-05-17 13:38:49', ?, ?)";
+        String sql = "INSERT INTO appointments (app_start_date, app_session_length, app_note) VALUES (?, ?, ?)";
 
         try {
             conn = databaseHandler.getConnection();
 
             preparedStatement = conn.prepareStatement(sql);
 
-            //preparedStatement.setDate(1, appointmentStartDate);
-            preparedStatement.setString(1, appointmentSessionLength);
-            preparedStatement.setString(2, appointmentNote);
+            preparedStatement.setString(1, appointmentStartDate);
+            preparedStatement.setString(2, appointmentSessionLength);
+            preparedStatement.setString(3, appointmentNote);
 
             preparedStatement.executeUpdate();
 

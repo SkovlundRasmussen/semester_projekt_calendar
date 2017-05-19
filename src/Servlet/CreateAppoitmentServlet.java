@@ -21,11 +21,11 @@ public class CreateAppoitmentServlet extends HttpServlet
         System.out.println("CreateAppoitmentServlet loading");
         Appointments appointments = new Appointments();
 
-        //request.setAttribute("appointmentStartDate", request.getParameter("appointmentStartDate"));
+        request.setAttribute("appointmentStartDate", request.getDateHeader("app_start_date"));
         request.setAttribute("appointmentSessionLength", request.getParameter("app_session_length"));
         request.setAttribute("appointmentNote", request.getParameter("app_note"));
 
-        appointments.newAppointment(/*request.getParameter("appointmentStartDate"),*/
+        appointments.newAppointment(request.getParameter("app_start_date"),
                 request.getParameter("app_session_length"), request.getParameter("app_note"));
         request.getRequestDispatcher("/create_appointment.jsp").forward(request, response);
     }

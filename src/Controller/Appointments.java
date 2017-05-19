@@ -19,11 +19,11 @@ public class Appointments {
         return appointmentsList;
     }
 
-    public void newAppointment(String appointmentSessionLength, String appointmentNote)
+    public void newAppointment(String appointmentStartDate, String appointmentSessionLength, String appointmentNote)
     {
         AppointmentHandler appointmentHandler = new AppointmentHandler();
 
-        appointmentHandler.newAppointment(appointmentSessionLength, appointmentNote);
+        appointmentHandler.newAppointment(appointmentStartDate, appointmentSessionLength, appointmentNote);
 
     }
 }
