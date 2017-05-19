@@ -20,10 +20,10 @@
         <tbody>
         <c:forEach items="${customers}" var="customer">
             <tr>
-                <td><c:out value="${customer.customerID}"/></td>
-                <td><c:out value="${customer.customerName}"/></td>
-                <td><c:out value="${customer.customerLastName}"/></td>
-                <td><c:out value="${customer.customerPhoneNumber}"/></td>
+                <td>${customer.customerID}/></td>
+                <td>${customer.customerName}/></td>
+                <td>${customer.customerLastName}/></td>
+                <td>${customer.customerPhoneNumber}/></td>
             </tr>
         </c:forEach>
         </tbody>

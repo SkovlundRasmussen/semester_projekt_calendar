@@ -86,7 +86,7 @@ public class CustomerHandler {
             databaseHandler.sqlEx(preparedStatement, conn);
             if (rs != null) try { rs.close(); } catch (SQLException logOrIgnore) {}
         }
-
+//Slet senere
         return customers;
     }
 }

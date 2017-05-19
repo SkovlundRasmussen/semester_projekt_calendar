@@ -13,6 +13,8 @@ public class Customers {
 
             customers = customerHandler.getCustomers();
             return customers;
+
+
         }
 
         public void newCustomer(String firstName, String lastName, String phoneNumber)
