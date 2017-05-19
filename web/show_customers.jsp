@@ -1,12 +1,13 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: krist
-  Date: 18-May-17
-  Time: 10:35
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <html>
+<%
+    ArrayList customersList = (ArrayList) session.getAttribute("customers");
+    request.setAttribute("customers", customersList);
+%>
 <head>
     <title>Title</title>
 </head>
@@ -18,12 +19,13 @@
         <tr><th>ID</th><th>Name</th><th>Phone</th></tr>
         </thead>
         <tbody>
+
         <c:forEach items="${customers}" var="customer">
             <tr>
-                <td>${customer.customerID}/></td>
-                <td>${customer.customerName}/></td>
-                <td>${customer.customerLastName}/></td>
-                <td>${customer.customerPhoneNumber}/></td>
+                <td><c:out value="${customer.getCustomerID()}"/></td>
+                <td><c:out value="${customer.getCustomerName()}"/> <c:out value="${customer.getCustomerLastname()}"/></td>
+
+                <td><c:out value="${customer.getCustomerPhoneNumber()}"/></td>
             </tr>
         </c:forEach>
         </tbody>

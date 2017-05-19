@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -25,8 +26,12 @@ public class ShowCustomerServlet extends HttpServlet {
         Customers customers = new Customers();
         List<Customer> customerList = customers.getCustomers();
 
+        HttpSession session = request.getSession(true);
 
-        request.setAttribute("customers", customerList);
+        session.setAttribute("customers", customerList);
+        /*
+        request.setAttribute("customers", customerList);*/
+
         request.getRequestDispatcher("/show_customers.jsp").forward(request, response);
     }
 }

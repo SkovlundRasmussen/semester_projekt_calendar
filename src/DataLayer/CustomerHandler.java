@@ -59,15 +59,11 @@ public class CustomerHandler {
 
         try {
 
-            System.out.println("1");
             conn = databaseHandler.getConnection();
-
-            System.out.println("2");
 
             smtp = conn.createStatement();
             rs = smtp.executeQuery(sql);
 
-            System.out.println("3");
             while (rs.next()) // Laver et nyt Customer objekt for hvert row i DB. Lager objekterne i en liste
             {
                 id = rs.getInt("customer_id");

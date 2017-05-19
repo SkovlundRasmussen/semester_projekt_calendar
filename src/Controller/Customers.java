@@ -2,14 +2,14 @@ package Controller;
 
 import DataLayer.CustomerHandler;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Customers {
 
         public List<Customer> getCustomers(){
             CustomerHandler customerHandler = new CustomerHandler();
-            List<Customer> customers = new ArrayList<Customer>();
+            List<Customer> customers;
 
             customers = customerHandler.getCustomers();
             return customers;
