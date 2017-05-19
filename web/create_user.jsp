@@ -32,18 +32,16 @@
                    <input type="password" name="userPass" width="30" id="password-label"/>
            </div>
 
-       <%--
-       <div>
-           <label for="second-password-label">Gentag password:</label>
-           <input type="password" name="userPass2" width="30" id="second-password-label"/>
-       </div>
-       --%>
-
+           <div>
+               <label for="second-password-label">Gentag password:</label>
+               <input type="password" name="userPass2" width="30" id="second-password-label"/>
+           </div>
 
             <div>
                 <input type="submit" value="Opret"/>
             </div>
 
+            <p style="color: red;">${errorMessage}</p>
 
         </form>
 
