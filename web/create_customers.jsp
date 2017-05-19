@@ -19,7 +19,7 @@
 <div id="wrapper">
 
 <h1>Opret ny kunde</h1>
-<form action="/customers" method="post"> <%-- Set action --%>
+<form action="/create_customers" method="post"> <%-- Set action --%>
 
     <%--
     <div>
