@@ -1,27 +1,20 @@
 package Servlet;
 
-import AppLayer.Login;
+import Controller.Login;
+
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Tolda on 16-05-2017.
+ * Created by Jamie L. Ramsgaard on 5/19/2017.
  */
-@WebServlet(name = "Servlet")
-public class LoginServlet extends javax.servlet.http.HttpServlet
-{
-    protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException
-    {
-        doPostLogin(request, response);
-    }
-
-    protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException
-    {
-
-    }
-
-    public void doPostLogin(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)throws javax.servlet.ServletException, IOException
-
+@WebServlet(name = "LoginServlet")
+public class LoginServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         Login login = new Login();
 
@@ -37,4 +30,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet
         }
     }
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
 }

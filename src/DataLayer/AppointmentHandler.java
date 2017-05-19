@@ -8,8 +8,8 @@ import java.util.Date;
 /**
  * Created by Jamie L. Ramsgaard on 5/18/2017.
  */
-public class AppointmentHandler {
-    //jamie
+public class AppointmentHandler
+{
     DatabaseHandler databaseHandler = new DatabaseHandler();
 
     public void newAppointment (String appointmentSessionLength, String appointmentNote) {
