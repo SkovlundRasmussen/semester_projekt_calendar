@@ -43,6 +43,7 @@
         <load-on-startup>4</load-on-startup>
     </servlet>
 
+
     <servlet-mapping>
         <servlet-name>ShowCustomer</servlet-name>
         <url-pattern>/show_customers</url-pattern>
