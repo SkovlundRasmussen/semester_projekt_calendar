@@ -13,8 +13,9 @@ import java.io.IOException;
  * Created by Jamie L. Ramsgaard on 5/18/2017.
  */
 @WebServlet(name = "CreateAppoitmentServlet")
-public class CreateAppoitmentServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+public class CreateAppoitmentServlet extends HttpServlet
+{
+/*    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         System.out.println("CreateAppoitmentServlet loading");
         Appointment appointment = new Appointment();
@@ -25,11 +26,11 @@ public class CreateAppoitmentServlet extends HttpServlet {
 
         appointment.newAppointment(request.getParameter("appointmentStartDate"), request.getParameter
                 ("appointSessionLength"), request.getParameter("appointmentNote"));
-        request.getRequestDispatcher()
+        request.getRequestDispatcher();
 
 
 
-    }
+    }*/
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
