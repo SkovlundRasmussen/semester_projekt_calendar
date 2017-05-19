@@ -11,10 +11,13 @@ public class Appointment {
     private int customerID;
     private int userID;
 
-    public void newAppointment(Date appointmentStartDate, String appointmentSessionLength, String appointmentNote)
-    {
-
+    public Appointment(int appointmentID, Date appointmentDate, int customerID, int userID) {
+        this.appointmentID = appointmentID;
+        this.appointmentDate = appointmentDate;
+        this.customerID = customerID;
+        this.userID = userID;
     }
+
 
     public int getAppointmentID() {
         return appointmentID;

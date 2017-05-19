@@ -1,6 +1,7 @@
 package Servlet;
 
 import Controller.Appointment;
+import Controller.Appointments;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,18 +17,15 @@ import java.io.IOException;
 public class CreateAppoitmentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        System.out.println("CreateAppoitmentServlet loading");
-        Appointment appointment = new Appointment();
+        System.out.println("CreateAppointmentServlet loading");
+         Appointments appointment = new Appointments();
 
-        request.setAttribute("appointmentStartDate", request.getParameter("appointmentStartDate"));
+        //request.setAttribute("appointmentStartDate", request.getParameter("appointmentStartDate"));
         request.setAttribute("appointmentSessionLength", request.getParameter("appointSessionLength"));
         request.setAttribute("appointmentNote", request.getParameter("appointmentNote"));
 
-        appointment.newAppointment(request.getParameter("appointmentStartDate"), request.getParameter
-                ("appointSessionLength"), request.getParameter("appointmentNote"));
-        request.getRequestDispatcher()
-
-
+        appointment.newAppointment( request.getParameter("appointmentSessionLength"), request.getParameter("appointmentNote"));
+        request.getRequestDispatcher("/create_appointment.jsp").forward(request, response);
 
     }
 
