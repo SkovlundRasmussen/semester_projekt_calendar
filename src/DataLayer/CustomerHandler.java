@@ -102,6 +102,7 @@ public class CustomerHandler {
 
         String sql = "SELECT * FROM customers WHERE customer_id=?";
 
+
         try{
             conn = databaseHandler.getConnection();
 

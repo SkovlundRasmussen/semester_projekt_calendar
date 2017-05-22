@@ -14,6 +14,7 @@
 
 <div id="wrapper">
 
+
     <h1>Rediger kunde</h1>
     <form action="/edit_customer" method="post"> <%-- Set action --%>
 

@@ -29,6 +29,7 @@ public class EditCustomerServlet extends HttpServlet {
 
         getCustomerSession.setAttribute("customer", customer);
 
+
         /*request.setAttribute("customers", customerList);*/
 
         request.getRequestDispatcher("/edit_customer.jsp").forward(request, response);

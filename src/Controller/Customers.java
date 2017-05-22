@@ -22,6 +22,7 @@ public class Customers {
             CustomerHandler customerHandler = new CustomerHandler();
             Customer customer = customerHandler.getCustomer(customerId);
             return customer;
+
         }
         //Kristian
 

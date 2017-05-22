@@ -18,6 +18,7 @@
         <thead>
         <tr><th>ID</th><th>Name</th><th>Phone</th></tr>
         </thead>
+
         <tbody>
 
         <c:forEach items="${customers}" var="customer">
