@@ -86,4 +86,16 @@
         <url-pattern>/edit_customer</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>EditUser</servlet-name>
+        <servlet-class>Servlet.EditUserServlet</servlet-class>
+        <load-on-startup>5</load-on-startup>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>EditUser</servlet-name>
+        <url-pattern>/edit_user</url-pattern>
+    </servlet-mapping>
+
 </web-app>
