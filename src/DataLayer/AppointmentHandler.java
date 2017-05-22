@@ -70,7 +70,7 @@ public class AppointmentHandler
             smtp = conn.createStatement();
             rs = smtp.executeQuery(sql);
 
-            while (rs.next()) // Laver et nyt Customer objekt for hvert row i DB. Lager objekterne i en liste
+            while (rs.next()) // Laver et nyt Appointment objekt for hvert row i DB. Lager objekterne i en liste
             {
                 id = rs.getInt("app_id");
                 appointmentStartDate = rs.getString("app_start_date");

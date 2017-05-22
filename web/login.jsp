@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8"/>
     <title>Login</title>
-    <link rel="stylesheet" href="css/loginStylesheet.css">
+    <link rel="stylesheet" href="css/stylesheet.css">
 </head>
 
     <body>
@@ -23,7 +23,7 @@
         <div class="imgcontainer">
             <img src="img/avatar2.png" alt="Avatar" class="avatar">
         </div>
-        <form action="/login" method="post">
+        <form action="/login" method="post" id="loginform">
             <div class="LoginContainer">
                 <label><b>Brugernavn:</b></label>
                 <input type="text" placeholder="Indtast Brugernavn" name="loginname"/>

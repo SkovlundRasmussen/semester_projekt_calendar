@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Customers {
 
+
         public List<Customer> getCustomers() // Retunere en liste af Customer objekter
         {
             CustomerHandler customerHandler = new CustomerHandler();

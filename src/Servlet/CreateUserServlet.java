@@ -15,6 +15,7 @@ import java.io.IOException;
 public class CreateUserServlet extends HttpServlet implements ServletInterface
 {
     //Nichlas
+
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
