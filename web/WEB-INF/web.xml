@@ -51,6 +51,18 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>Appointment</servlet-name>
+        <servlet-class>Servlet.CreateAppoitmentServlet</servlet-class>
+        <load-on-startup>4</load-on-startup>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>Appointment</servlet-name>
+        <url-pattern>/appointment</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>EditCustomer</servlet-name>
         <servlet-class>Servlet.EditCustomerServlet</servlet-class>
         <load-on-startup>4</load-on-startup>
@@ -61,4 +73,5 @@
         <servlet-name>EditCustomer</servlet-name>
         <url-pattern>/edit_customer</url-pattern>
     </servlet-mapping>
+
 </web-app>

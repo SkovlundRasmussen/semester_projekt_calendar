@@ -1,5 +1,5 @@
 package Servlet;
-
+//jamie
 import Controller.Users;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,12 +19,29 @@ public class CreateUserServlet extends HttpServlet
         System.out.println("CreateUserServlet loading");
         Users users = new Users();
 
+        requestAttributes(request);
+
+        if(request.getParameter("userPass").equals(request.getParameter("userPass2"))) //Checks if password 1 & 2 are the same.
+        {
+            users.newUser(request.getParameter("userName"), request.getParameter("userPass"));
+            request.setAttribute("errorMessage", "Ny bruger oprettet"); //Show confirm msg on html
+            request.getRequestDispatcher("/create_user.jsp").forward(request, response);
+        }
+
+        {
+            request.setAttribute("errorMessage", "Passwords stemmer ikke overens"); //Show confirm msg on html
+            request.getRequestDispatcher("/create_user.jsp").forward(request, response);
+        }
+
+
+    }
+
+    private void requestAttributes(HttpServletRequest request)
+    {
         //request.setAttribute("userTypeId", request.getParameter("userTypeId"));
         request.setAttribute("userName", request.getParameter("userName"));
         request.setAttribute("userPass", request.getParameter("userPass"));
-
-        users.newUser(request.getParameter("userName"), request.getParameter("userPass"));
-        request.getRequestDispatcher("/create_user.jsp").forward(request, response);
+        request.setAttribute("userPass2", request.getParameter("userPass2"));
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException

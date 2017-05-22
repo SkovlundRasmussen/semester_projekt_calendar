@@ -21,8 +21,9 @@
 
         <div>
             <label for="appointment-start-date-label">Appointment start date:</label>
-            <input type="date" name="app_start_date" width="30" placeholder="Appointment start date" id="appointment-start-date-label"/>
+            <input type="text" name="app_start_date" width="30" placeholder="Appointment start date" id="appointment-start-date-label"/>
         </div>
+
 
         <div>
             <label for="appointment-session-length-label">Appointment session length:</label>
