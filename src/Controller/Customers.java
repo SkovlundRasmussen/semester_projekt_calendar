@@ -5,8 +5,8 @@ import DataLayer.CustomerHandler;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Customers {
-
+public class Customers
+{
         public List<Customer> getCustomers(){
             CustomerHandler customerHandler = new CustomerHandler();
             List<Customer> customers;
@@ -39,6 +39,4 @@ public class Customers {
                 customerHandler.newCustomer(firstName, lastName, phoneNumber);
             }
         }
-
-
 }

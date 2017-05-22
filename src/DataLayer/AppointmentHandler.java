@@ -19,7 +19,8 @@ public class AppointmentHandler
 
         String sql = "INSERT INTO appointments (app_start_date, app_session_length, app_note) VALUES (?, ?, ?)";
 
-        try {
+        try
+        {
             conn = databaseHandler.getConnection();
 
             preparedStatement = conn.prepareStatement(sql);
@@ -33,9 +34,13 @@ public class AppointmentHandler
             System.out.println("UPDATE");
             preparedStatement.close();
             conn.close();
-        } catch (SQLException e) {
+        }
+        catch (SQLException e)
+        {
             e.printStackTrace();
-        } finally {
+        }
+        finally
+        {
             databaseHandler.sqlEx(preparedStatement, conn);
         }
     }

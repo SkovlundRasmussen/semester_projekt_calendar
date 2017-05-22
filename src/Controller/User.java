@@ -1,11 +1,11 @@
 package Controller;
 
-
 import java.util.Date;
 
-public class User {
-    private int userID;
-    private String userName;
+public class User
+{
+    private int userID; //1
+    private String userName; //1
     private String userPassword;
     private Date dateTime;
     private int userType;
