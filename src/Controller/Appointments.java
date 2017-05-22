@@ -1,6 +1,7 @@
 package Controller;
 
 import DataLayer.AppointmentHandler;
+import DataLayer.CustomerHandler;
 import DataLayer.UserHandler;
 
 import java.sql.Date;
@@ -12,11 +13,13 @@ import java.util.List;
  */
 public class Appointments {
 
-    private List getAppointmentList()
+    public List getAppointments()
     {
-        List<Appointment> appointmentsList = new LinkedList<>();
+        AppointmentHandler appointmentHandler = new AppointmentHandler();
+        List<Appointment> appointments;
 
-        return appointmentsList;
+        appointments = appointmentHandler.getAppointments();
+        return appointments;
     }
 
     public void newAppointment(String appointmentStartDate, String appointmentSessionLength, String appointmentNote)

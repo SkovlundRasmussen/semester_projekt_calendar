@@ -6,7 +6,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomerHandler {
+public class CustomerHandler
+{
     DatabaseHandler databaseHandler = new DatabaseHandler();
 
     public void newCustomer(String firstName, String lastName, String phoneNumber)
@@ -16,14 +17,13 @@ public class CustomerHandler {
 
         String sql = "INSERT INTO customers(customer_first_name, customer_last_name, phone_nr) VALUES (?, ?, ?)";
 
-        try{
+        try
+        {
         conn = databaseHandler.getConnection();
 
         preparedStatement =	conn.prepareStatement(sql);
 
-            preparedStatement.setString(1, firstName);
-            preparedStatement.setString(2, lastName);
-            preparedStatement.setString(3, phoneNumber);
+            prepareStatements(firstName, lastName, phoneNumber, preparedStatement);
 
             preparedStatement.executeUpdate();
 
@@ -32,13 +32,22 @@ public class CustomerHandler {
             conn.close();
         }
 
-       catch (SQLException e) {
-            e.printStackTrace();
-        }
+       catch (SQLException e)
+       {
+           e.printStackTrace();
+       }
 
-        finally {
+        finally
+        {
             databaseHandler.sqlEx(preparedStatement, conn);
         }
+    }
+
+    private void prepareStatements(String firstName, String lastName, String phoneNumber, PreparedStatement preparedStatement) throws SQLException
+    {
+        preparedStatement.setString(1, firstName);
+        preparedStatement.setString(2, lastName);
+        preparedStatement.setString(3, phoneNumber);
     }
 
     public List<Customer> getCustomers() {
@@ -75,9 +84,13 @@ public class CustomerHandler {
             }
             smtp.close();
             conn.close();
-        } catch (SQLException e) {
+        }
+        catch (SQLException e)
+        {
             e.printStackTrace();
-        } finally {
+        }
+        finally
+        {
             databaseHandler.sqlEx(preparedStatement, conn);
             if (rs != null) try { rs.close(); } catch (SQLException logOrIgnore) {}
         }

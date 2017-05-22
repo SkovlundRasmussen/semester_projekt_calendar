@@ -16,12 +16,17 @@ import java.util.List;
  * Created by krist on 18-May-17.
  */
 @WebServlet(name = "ShowCustomerServlet")
-public class ShowCustomerServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class ShowCustomerServlet extends HttpServlet implements ServletInterface
+{
+    @Override
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    @Override
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
         System.out.println("SHOW CUSTOMERS");
         Customers customers = new Customers();
         List<Customer> customerList = customers.getCustomers();
@@ -29,9 +34,34 @@ public class ShowCustomerServlet extends HttpServlet {
         HttpSession session = request.getSession(true);
 
         session.setAttribute("customers", customerList);
-        /*
-        request.setAttribute("customers", customerList);*/
+
+        request.setAttribute("customers", customerList);
 
         request.getRequestDispatcher("/show_customers.jsp").forward(request, response);
     }
+
+
+
+
+// OLD CODE
+/*  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+        {
+        System.out.println("SHOW CUSTOMERS");
+        Customers customers = new Customers();
+        List<Customer> customerList = customers.getCustomers();
+
+        HttpSession session = request.getSession(true);
+
+        session.setAttribute("customers", customerList);
+
+        request.setAttribute("customers", customerList);
+
+        request.getRequestDispatcher("/show_customers.jsp").forward(request, response);
+    }
+*/
 }

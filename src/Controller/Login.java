@@ -12,5 +12,4 @@ public class Login {
 
         return loginHandler.isValidUserLogin(sUserName,sUserPassword);
     }
-
 }

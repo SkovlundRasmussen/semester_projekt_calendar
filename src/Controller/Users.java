@@ -26,7 +26,4 @@ public class Users
         userHandler.newUser(userName, userPass);
 
     }
-
-
-
 }

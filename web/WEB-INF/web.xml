@@ -63,6 +63,18 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>ShowAppointment</servlet-name>
+        <servlet-class>Servlet.ShowAppointmentServlet</servlet-class>
+        <load-on-startup>6</load-on-startup>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>ShowAppointment</servlet-name>
+        <url-pattern>/show_appointment</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>EditCustomer</servlet-name>
         <servlet-class>Servlet.EditCustomerServlet</servlet-class>
         <load-on-startup>4</load-on-startup>

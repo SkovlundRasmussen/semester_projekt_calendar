@@ -5,16 +5,16 @@ import java.sql.*;
  * Created by Toldam on 16-05-2017.
  */
 
-//push test
+
 public class DatabaseHandler
 {
+    //Connect to DB
     public static Connection getConnection()
     {
         Connection conn = null;
 
         try
         {
-            //
             Class.forName("com.mysql.jdbc.Driver");
 
                 System.out.println("Connecting to database...");
@@ -26,8 +26,8 @@ public class DatabaseHandler
             conn = DriverManager.getConnection(DB_Url + DB_Pass);
 
             return conn;
-
         }
+
         catch(SQLException se)
         {
             //Handle errors for JDBC
@@ -42,6 +42,7 @@ public class DatabaseHandler
 
         return null;
     }
+
 
     public void sqlEx(PreparedStatement preparedStatement, Connection conn)
     {
@@ -59,5 +60,6 @@ public class DatabaseHandler
             e.printStackTrace();
         }
     }
+
 
 }

@@ -7,20 +7,40 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
 <head>
-    <title>Title</title>
+    <meta charset="utf-8"/>
+    <title>Login</title>
+    <link rel="stylesheet" href="css/loginStylesheet.css">
 </head>
-<body>
-<h1>Welcome. Please login</h1>
 
-<form action="/login" method="post">
+    <body>
 
-    login-name: <input type="text" name="loginname" width="30"/>
-    password: <input type="password" name="password" width="10"/>
-    <input type="submit" value="login"/>
-</form>
+    <div class="bigWrapper">
 
-<p style="color:red;">${errorMessage}</p>
+        <h1 class="header">Login</h1>
 
-</body>
+        <div class="imgcontainer">
+            <img src="img/avatar2.png" alt="Avatar" class="avatar">
+        </div>
+        <form action="/login" method="post">
+            <div class="LoginContainer">
+                <label><b>Brugernavn:</b></label>
+                <input type="text" placeholder="Indtast Brugernavn" name="loginname"/>
+
+                <label><b>Password:</b></label>
+                <input type="password" placeholder="Indtast Password" name="password"/>
+                <div class="loginBut">
+                    <input type="submit" value="login" />
+                </div>
+            </div>
+        </form>
+
+        <p style="color:red;">${errorMessage}</p>
+
+    </div>
+
+
+    </body>
+
 </html>

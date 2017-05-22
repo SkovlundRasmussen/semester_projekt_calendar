@@ -1,49 +1,3 @@
-/*Nichlas*/
-*{
-     padding:0px;
-     margin:0px;
-
- }
-
-body{
-
-}
-
-#wrapper, header, footer{
-    width:1200px;
-    margin:0 auto;
-    box-sizing: border-box;
-    border:1px solid black;
-}
-
-header
-{
-    margin-top:50px;
-}
-
-#main_nav
-{
-
-}
-
-#main_nav ul
-{
-    width:100%;
-}
-
-#main_nav ul li
-{
-    display:inline-block;
-    height:30px;
-    margin:0 20px;
-}
-
-#main_nav ul li a
-{
-    line-height: 30px;
-    text-decoration: none;
-}
-
 form {
     border: 3px solid #f1f1f1;
 }
@@ -84,4 +38,5 @@ img.avatar
 {
     text-align: center;
 }
+
 
