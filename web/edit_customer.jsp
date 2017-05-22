@@ -36,6 +36,7 @@
 
         <input type="submit" value="Rediger"/>
         <p style="color: red;">${errorMessage}</p>
+
     </form>
 
 </div>

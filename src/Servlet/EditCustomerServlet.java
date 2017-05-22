@@ -18,6 +18,7 @@ import java.io.IOException;
  */
 @WebServlet(name = "EditCustomerServlet")
 public class EditCustomerServlet extends HttpServlet {
+
     //Nichlas
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Entering EditCustomerServlet-doPost");

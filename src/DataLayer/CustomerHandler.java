@@ -13,6 +13,7 @@ public class CustomerHandler
     public void editCustomer(String firstName, String lastName, String phoneNumber, String id)
     {
         PreparedStatement preparedStatement = null;
+
         Connection conn = null;
 
         String sql = "UPDATE customers SET customer_first_name = ?, customer_last_name = ?, phone_nr = ? WHERE customer_id = ?;";

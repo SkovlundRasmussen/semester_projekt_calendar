@@ -18,6 +18,7 @@ import java.util.List;
 @WebServlet(name = "ShowCustomerServlet")
 public class ShowCustomerServlet extends HttpServlet implements ServletInterface
 {
+
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
