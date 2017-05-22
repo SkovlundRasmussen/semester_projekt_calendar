@@ -28,6 +28,7 @@ public class CreateAppoitmentServlet extends HttpServlet
         appointments.newAppointment(request.getParameter("app_start_date"),
                 request.getParameter("app_session_length"), request.getParameter("app_note"));
         request.getRequestDispatcher("/create_appointment.jsp").forward(request, response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
