@@ -8,6 +8,7 @@ import java.sql.*;
  */
 public class UserHandler
 {
+
     DatabaseHandler databaseHandler = new DatabaseHandler();
 
     public void newUser(String userName, String userPass)
@@ -44,4 +45,5 @@ public class UserHandler
             databaseHandler.sqlEx(preparedStatement, conn);
         }
     }
+
 }

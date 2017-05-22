@@ -27,9 +27,6 @@
                 <li><a href="../show_appointment">Alle tider </a></li>
                 <li><a href="">Logud</a></li>
 
-
-
-
             </ul>
         </nav>
     </header>
