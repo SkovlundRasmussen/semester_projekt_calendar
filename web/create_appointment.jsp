@@ -21,13 +21,14 @@
 
         <div>
             <label for="appointment-start-date-label">Appointment start date:</label>
-            <input type="text" name="app_start_date" width="30" placeholder="Appointment start date" id="appointment-start-date-label"/>
+            <input type="datetime-local" name="app_start_date" width="30" placeholder="Appointment start date"
+                   id="appointment-start-date-label" maxlength="19" minlength="19" placeholder="2017-05-17 13:38:49"/>
         </div>
 
 
         <div>
             <label for="appointment-session-length-label">Appointment session length:</label>
-            <input type="text" name="app_session_length" width="30" id="appointment-session-length-label"/>
+            <input type="number" step="any" name="app_session_length" min="0" max="24" width="30" id="appointment-session-length-label"/>
         </div>
 
 
@@ -36,9 +37,8 @@
             <input type="text" name="app_note" width="30" id="appointment-note-label"/>
         </div>
 
-        <div>
             <input type="submit" value="Opret"/>
-        </div>
+            <p style="color: red;">${errorMessage}</p>
     </form>
 </div>
 </html>

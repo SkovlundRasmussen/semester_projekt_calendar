@@ -2,6 +2,7 @@ package Servlet;
 //jamie
 import Controller.Appointment;
 import Controller.Appointments;
+import Controller.ErrorHandler;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,6 +20,7 @@ public class CreateAppoitmentServlet extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         System.out.println("CreateAppoitmentServlet loading");
+        boolean error = true;
         Appointments appointments = new Appointments();
 
         request.setAttribute("appointmentStartDate", request.getDateHeader("app_start_date"));
@@ -27,6 +29,7 @@ public class CreateAppoitmentServlet extends HttpServlet
 
         appointments.newAppointment(request.getParameter("app_start_date"),
                 request.getParameter("app_session_length"), request.getParameter("app_note"));
+        request.setAttribute("errorMessage", "Ny tid er blevet oprettet"); //Show confirm msg on jsp
         request.getRequestDispatcher("/create_appointment.jsp").forward(request, response);
 
     }
