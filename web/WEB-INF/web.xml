@@ -50,4 +50,15 @@
         <url-pattern>/show_customers</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>EditCustomer</servlet-name>
+        <servlet-class>Servlet.EditCustomerServlet</servlet-class>
+        <load-on-startup>4</load-on-startup>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>EditCustomer</servlet-name>
+        <url-pattern>/edit_customer</url-pattern>
+    </servlet-mapping>
 </web-app>
