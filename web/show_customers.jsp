@@ -18,14 +18,18 @@
         <thead>
         <tr><th>ID</th><th>Name</th><th>Phone</th></tr>
         </thead>
+
         <tbody>
 
         <c:forEach items="${customers}" var="customer">
             <tr>
                 <td><c:out value="${customer.getCustomerID()}"/></td>
                 <td><c:out value="${customer.getCustomerName()}"/> <c:out value="${customer.getCustomerLastname()}"/></td>
-
                 <td><c:out value="${customer.getCustomerPhoneNumber()}"/></td>
+                <td>
+                    <c:url var="id_url" value="${customer.getCustomerID()}"/>
+                    <a href="edit_customer?customer_id=${customer.getCustomerID()}">Rediger</a>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
@@ -33,3 +37,4 @@
 </div>
 </body>
 </html>
+<%--Kristain--%>

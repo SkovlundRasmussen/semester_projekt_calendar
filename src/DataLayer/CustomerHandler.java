@@ -2,7 +2,6 @@ package DataLayer;
 
 import Controller.Customer;
 
-import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -82,10 +81,61 @@ public class CustomerHandler {
             databaseHandler.sqlEx(preparedStatement, conn);
             if (rs != null) try { rs.close(); } catch (SQLException logOrIgnore) {}
         }
-//Slet senere
+        //Slet senere
         return customers;
     }
+    // Kristian
+
+    public Customer getCustomer(String customerId)
+    {
+        PreparedStatement preparedStatement = null;
+        ResultSet rs = null;
+        Connection conn = null;
+
+        Customer customer = null;
+
+        int id;
+        String first_name;
+        String last_name;
+        String phone_nr;
+
+
+        String sql = "SELECT * FROM customers WHERE customer_id=?";
+
+
+        try{
+            conn = databaseHandler.getConnection();
+
+            preparedStatement =	conn.prepareStatement(sql);
+            preparedStatement.setString(1, customerId);
+            rs = preparedStatement.executeQuery();
+
+            if(rs.next()) // Kommer der et hit ud fra DB bliver der lavet et nyt Customer Objekt.
+            {
+                id = rs.getInt("customer_id");
+                first_name = rs.getString("customer_first_name");
+                last_name = rs.getString("customer_last_name");
+                phone_nr = rs.getString("phone_nr");
+
+                customer = new Customer(id, first_name, last_name, phone_nr);
+
+                // Eksekvere return før finally?
+                return customer;
+            }
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            databaseHandler.sqlEx(preparedStatement, conn);
+            if (rs != null) try { rs.close(); } catch (SQLException logOrIgnore) {}
+        }
+        return customer;
+    }
+    // Kristian
+
 }
+
 
 
 
