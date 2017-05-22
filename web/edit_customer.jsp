@@ -19,6 +19,7 @@
     <form action="/edit_customer" method="post"> <%-- Set action --%>
 
         <div>
+            <input type="hidden" id="customerID" name="customerID" value="<c:out value="${customer.getCustomerID()}"/>"/>
             <label for="first-name" id="first-name-label">Fornavn:</label>
             <input type="text" name="firstName" width="30" placeholder="Fornavn" id="first-name" value="<c:out value="${customer.getCustomerName()}"/>"/>
         </div>

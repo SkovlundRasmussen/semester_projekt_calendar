@@ -10,6 +10,45 @@ public class CustomerHandler
 {
     DatabaseHandler databaseHandler = new DatabaseHandler();
 
+    public void editCustomer(String firstName, String lastName, String phoneNumber, String id)
+    {
+        PreparedStatement preparedStatement = null;
+        Connection conn = null;
+
+        String sql = "UPDATE customers SET customer_first_name = ?, customer_last_name = ?, phone_nr = ? WHERE customer_id = ?;";
+
+
+        try
+        {
+            conn = databaseHandler.getConnection();
+
+            preparedStatement =	conn.prepareStatement(sql);
+
+            //prepareStatements(firstName, lastName, phoneNumber, preparedStatement);
+            preparedStatement.setString(1, firstName);
+            preparedStatement.setString(2, lastName);
+            preparedStatement.setString(3, phoneNumber);
+            preparedStatement.setString(4, id);
+
+            preparedStatement.executeUpdate();
+
+            System.out.println("UPDATE");
+            preparedStatement.close();
+            conn.close();
+        }
+
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        finally
+        {
+            databaseHandler.sqlEx(preparedStatement, conn);
+        }
+    }
+
+
     public void newCustomer(String firstName, String lastName, String phoneNumber)
     {
         PreparedStatement preparedStatement = null;
