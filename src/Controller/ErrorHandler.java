@@ -38,6 +38,4 @@ public class ErrorHandler
         }
         return  containsNumber;
     }
-
-
 }
