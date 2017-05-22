@@ -31,6 +31,7 @@ public class CreateAppoitmentServlet extends HttpServlet
                 request.getParameter("app_session_length"), request.getParameter("app_note"));
         request.setAttribute("errorMessage", "Ny tid er blevet oprettet"); //Show confirm msg on jsp
         request.getRequestDispatcher("/create_appointment.jsp").forward(request, response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

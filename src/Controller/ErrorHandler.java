@@ -5,6 +5,7 @@ package Controller;
  */
 public class ErrorHandler
 {
+
     //Nichlas: validation if phone number contains anything other than Int values
     public static boolean IsAValidNumber(String phoneNumber)
     {
@@ -22,7 +23,7 @@ public class ErrorHandler
         }
     }
 
-    //Nichlas:
+    //Nichlas: validation if name contains a integer
     public static boolean IsAValidName(String name)
     {
         boolean containsNumber = false;

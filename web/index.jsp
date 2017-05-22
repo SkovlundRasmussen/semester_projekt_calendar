@@ -13,15 +13,19 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css"></link>
 
-    <title>$Title$</title>
+    <title>Calendar</title>
     <script>
         $(document).ready(function() {
-
         // page is now ready, initialize the calendar...
-
         $('#calendar').fullCalendar({
             // put your options and callbacks here
+            header:{
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            }
         })
+
 
     });
     </script>

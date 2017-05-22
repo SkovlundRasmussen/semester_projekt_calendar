@@ -1,6 +1,6 @@
 package Controller;
 
-import java.util.Date;
+import java.util.*;
 
 public class Appointment {
     private int appointmentID;

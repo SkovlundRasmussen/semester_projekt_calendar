@@ -1,6 +1,8 @@
 
 package DataLayer;
 
+import Controller.User;
+
 import java.sql.*;
 
 /**
@@ -12,13 +14,12 @@ public class LoginHandler {
 
 
 
-    public boolean isValidUserLogin(String sUSerName, String sUserPassword){
+    public User isValidUserLogin(String sUSerName, String sUserPassword){
 
-        boolean isValidUser = false;
+        User user = null;
 
         PreparedStatement preparedStatement = null;
         Connection conn = null;
-        Statement stmt = null;
 
         String sql = "SELECT * FROM users WHERE user_name = ? AND user_pass = ?";
 
@@ -28,15 +29,18 @@ public class LoginHandler {
 
             preparedStatement = conn.prepareStatement(sql);
 
-
             preparedStatement.setString(1, sUSerName);
             preparedStatement.setString(2, sUserPassword);
 
             ResultSet rs = preparedStatement.executeQuery();
 
-
             if (rs.next()){
-                isValidUser = true;
+                int id = rs.getInt("user_id");
+                int userType = rs.getInt("user_type_id");
+                String userName = rs.getString("user_name");
+                user = new User(id, userName, userType);
+
+                return user;
             }
 
             System.out.println("UPDATE");
@@ -54,6 +58,6 @@ public class LoginHandler {
             databaseHandler.sqlEx(preparedStatement, conn);
         }
 
-        return isValidUser;
+        return user;
     }
 }
