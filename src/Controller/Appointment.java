@@ -2,9 +2,6 @@ package Controller;
 
 import java.util.Date;
 
-/**
- * Created by Jamie L. Ramsgaard on 5/16/2017.
- */
 public class Appointment {
     private int appointmentID;
     private String appointmentDate;
