@@ -24,6 +24,7 @@
                 <li><a href="../create_user.jsp">Ny bruger</a></li>
                 <li><a href="../user.jsp">Alle brugere</a></li>
                 <li><a href="../create_appointment.jsp">Ny tid </a></li>
+                <li><a href="../show_appointment">Alle tider </a></li>
                 <li><a href="">Logud</a></li>
 
 

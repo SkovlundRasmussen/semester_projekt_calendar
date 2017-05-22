@@ -36,7 +36,7 @@ public class Customer {
     }
 
     public void setCustomerLastname(String customerLastname) {
-        this.customerLastname = customerLastname;
+        this.customerLastname = this.customerLastname;
     }
 
     public String getCustomerPhoneNumber() {
