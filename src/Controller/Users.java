@@ -27,11 +27,5 @@ public class Users
 
     }
 
-    private User getUser()
-    {
-       return userHandler.getUser();
-    }
-
-
 
 }

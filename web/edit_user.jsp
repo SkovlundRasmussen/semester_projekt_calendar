@@ -7,7 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-
 <head>
     <title>User</title>
 </head>
@@ -20,22 +19,16 @@
 
     <h1>Nyt password</h1>
 
-    <form action="/users" method="post">
+    <form action="/edit_user" method="post">
 
         <div>
-            <label name="current-user">Ændre password for:</label>
+            <label name="current-user">Ændre password for:<c:out value="${user.getUserName()}"/></label>
         </div>
-
         <div>
-            <label for="password-label">Password:</label>
-            <input type="password" name="userPass" width="30" id="password-label"/>
-        </div>
-
-        <div>
+            <input type="hidden" id="userID" name="userID" value="<c:out value="${user.getUserID()}"/>"/>
             <label for="new-password-label">Indtast nyt password:</label>
             <input type="password" name="userPass" width="30" id="new-password-label"/>
         </div>
-
         <div>
             <label for="reenter-new-password-label">Gentag nyt password:</label>
             <input type="password" name="userPass2" width="30" id="reenter-new-password-label"/>

@@ -38,49 +38,46 @@ public class UserHandler
             System.out.println("UPDATE");
             preparedStatement.close();
             conn.close();
-        } catch (SQLException e) {
+        } catch (SQLException e)
+        {
             e.printStackTrace();
-        } finally {
+        } finally
+        {
             databaseHandler.sqlEx(preparedStatement, conn);
         }
     }
 
-    public User getUser()
+    public void editUser(String password, String userID)
     {
-        int userID;
-        String userName;
-        String userPassword;
-        int userType;
-        Date dateTime;
+
 
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
         Connection conn = null;
 
-        String sql = "SELECT * FROM users WHERE user_id = 1"; //brug session cookie
+
+        String sql = "UPDATE users SET user_pass = ? WHERE user_id = ?";
+
 
         try {
             conn = databaseHandler.getConnection();
+            preparedStatement = conn.prepareStatement(sql);
 
-            rs = preparedStatement.executeQuery(sql);
-            if (rs.next());
-            {
-                userID = rs.getInt("user_id");
-                userName = rs.getString("user_name");
-                userPassword = rs.getString("user_pass");
-                userType = rs.getInt("user_type_id");
-                dateTime = rs.getDate("creation_date");
-                User user = new User(userID, userName, userPassword, dateTime, userType);
+            preparedStatement.setString(1, password );
+            preparedStatement.setString(2, userID);
 
-                return user;
-            }
+
+            preparedStatement.executeUpdate();
+
+            System.out.println("UPDATE");
             preparedStatement.close();
             conn.close();
-        } catch (SQLException e) {
+        } catch (SQLException e)
+        {
             e.printStackTrace();
-        } finally {
+        } finally
+        {
             databaseHandler.sqlEx(preparedStatement, conn);
-            if (rs != null) try { rs.close(); } catch (SQLException logOrIgnore) {}
         }
 
     }
