@@ -22,7 +22,6 @@ public class Appointments {
         return appointments;
     }
 
-    public void newAppointment(String appointmentStartDate, String appointmentSessionLength, String appointmentNote, String userId, String customerId)
     public Appointment getAppointment (String appointmentID) // Returnere et Appointment Objekt
     {
         AppointmentHandler appointmentHandler = new AppointmentHandler();
@@ -31,7 +30,7 @@ public class Appointments {
 
     }
 
-    public void newAppointment(String appointmentStartDate, String appointmentSessionLength, String appointmentNote)
+    public void newAppointment(String appointmentStartDate, String appointmentSessionLength, String appointmentNote, String userId, String customerId)
     {
         AppointmentHandler appointmentHandler = new AppointmentHandler();
 
