@@ -22,7 +22,7 @@
 
     <table>
         <thead>
-        <tr><%-- <th>ID</th>--%><th>Startstid</th><th>Antal timer</th><th>Note</th><th>Rediger aftale</th></tr>
+        <tr><%-- <th>ID</th>--%><th>Startstid</th><th>Antal timer</th><th>Kommentar</th><th>Rediger aftale</th><th>Slet aftale</th></tr>
 
         </thead>
         <tbody>

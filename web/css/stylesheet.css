@@ -9,6 +9,7 @@
     text-shadow: 2px 2px #808080;
     font-family: "Times New Roman", Times, serif;
     padding: 10px;
+
 }
 
 #main_nav ul
@@ -79,11 +80,9 @@
 
 .wrapper
 {
-
     padding: 2px;
     border-collapse: collapse;
     width: 100%;
-
 }
 .wrapper th, td
 {
