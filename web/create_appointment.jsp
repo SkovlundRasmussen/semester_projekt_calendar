@@ -5,6 +5,7 @@
   Time: 13:35
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,7 +13,6 @@
 </head>
 <body>
 <%@include file="includes/header.jsp" %>
-
 </body>
 <div id="wrapper">
 
@@ -21,6 +21,11 @@
     <form action="/appointment" method="post">
 
         <div>
+            <input type="hidden" name="customer_id" value="<c:out value="${customer_id}"/>"/>
+            <input type="hidden" name="user_id" value="<c:out value="${userId.getUserID()}"/>" />
+            <label for="appointment-start-date-label">Appointment start date:</label>
+            <input type="datetime-local" name="app_start_date" width="30" placeholder="Appointment start date"
+                   id="appointment-start-date-label" maxlength="19" minlength="19" placeholder="2017-05-17 13:38:49"/>
             <div>
                 <label for="appointment-start-date-label">Appointment start date:</label>
             </div>
