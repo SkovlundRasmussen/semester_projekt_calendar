@@ -14,8 +14,9 @@
 
 
 <div id="footer">
-    <ul>
-        <p>BETA</p>
+    <ul id="madeBy">
+        <p>Lavet af</p>
+        <p>Nichlas Buer Toldam - Kristian Skovlund Rasmussen - Jamie Lincoln Ramsgaard - Peter Brill Skovboe</p>
     </ul>
 </div>
 </body>

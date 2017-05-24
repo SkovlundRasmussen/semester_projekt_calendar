@@ -8,6 +8,7 @@
     text-align: center;
     text-shadow: 2px 2px #808080;
     font-family: "Times New Roman", Times, serif;
+    padding: 10px;
 }
 
 #main_nav ul
@@ -50,6 +51,8 @@
 {
     color: white;
     text-align: center;
+    text-decoration-style: wavy;
+    /*padding: 15px;*/
 }
 .btn
 {
@@ -93,8 +96,18 @@
 {
     background-color: lightgray
 }
+/*
 
-
+#appointment-session-length-label
+{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+*/
 
 form
 {
@@ -102,7 +115,7 @@ form
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password]
+input[type=text], input[type=password], #appointment-session-length-label, #appointment-start-date-label
 {
     width: 100%;
     padding: 12px 20px;

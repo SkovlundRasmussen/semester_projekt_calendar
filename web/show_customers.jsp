@@ -18,14 +18,14 @@
 <div class="wrapper">
     <table>
         <thead>
-        <tr><th>ID</th><th>Navn</th><th>Tlf</th><th>Rediger kunde</th><th>Opret tid</th></tr>
+        <tr><%--<th>ID</th>--%><th>Navn</th><th>Tlf</th><th>Rediger kunde</th><th>Opret tid</th></tr>
         </thead>
 
         <tbody>
 
         <c:forEach items="${customers}" var="customer">
             <tr>
-                <td><c:out value="${customer.getCustomerID()}"/></td>
+                <%--<td><c:out value="${customer.getCustomerID()}"/></td>--%>
                 <td><c:out value="${customer.getCustomerName()}"/> <c:out value="${customer.getCustomerLastname()}"/></td>
                 <td><c:out value="${customer.getCustomerPhoneNumber()}"/></td>
                 <td>
