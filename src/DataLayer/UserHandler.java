@@ -24,7 +24,8 @@ public class UserHandler
 
         String sql = "INSERT INTO users(user_type_id, user_name, user_pass) VALUES (?, ?, ?)";
 
-        try {
+        try
+        {
             conn = databaseHandler.getConnection();
             preparedStatement = conn.prepareStatement(sql);
 
@@ -38,10 +39,12 @@ public class UserHandler
             System.out.println("UPDATE");
             preparedStatement.close();
             conn.close();
-        } catch (SQLException e)
+        }
+        catch (SQLException e)
         {
             e.printStackTrace();
-        } finally
+        }
+        finally
         {
             databaseHandler.sqlEx(preparedStatement, conn);
         }
@@ -52,7 +55,6 @@ public class UserHandler
 
 
         PreparedStatement preparedStatement = null;
-        ResultSet rs = null;
         Connection conn = null;
 
 
@@ -72,10 +74,12 @@ public class UserHandler
             System.out.println("UPDATE");
             preparedStatement.close();
             conn.close();
-        } catch (SQLException e)
+        }
+        catch (SQLException e)
         {
             e.printStackTrace();
-        } finally
+        }
+        finally
         {
             databaseHandler.sqlEx(preparedStatement, conn);
         }
