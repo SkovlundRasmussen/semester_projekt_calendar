@@ -150,4 +150,41 @@ public class AppointmentHandler
         }
         return appointment;
     }
+    public void editAppointment (String appointmentStartDate, String appointmentSessionLength, String appointmentNote, String id)
+    {
+        PreparedStatement preparedStatement = null;
+
+        Connection conn = null;
+
+        String sql = "UPDATE appointments SET app_start_date = ?, app_session_length = ?, app_note = ? WHERE app_id = ?;";
+
+        try
+        {
+            conn = databaseHandler.getConnection();
+
+            preparedStatement =    conn.prepareStatement(sql);
+
+            preparedStatement.setString(1, appointmentStartDate);
+            preparedStatement.setString(2, appointmentSessionLength);
+            preparedStatement.setString(3, appointmentNote);
+            preparedStatement.setString(4, id);
+
+            preparedStatement.executeUpdate();
+
+            System.out.println("UPDATE");
+            preparedStatement.close();
+            conn.close();
+        }
+
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        finally
+        {
+            databaseHandler.sqlEx(preparedStatement, conn);
+        }
+    }
+
 }
