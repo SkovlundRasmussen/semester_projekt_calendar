@@ -2,6 +2,7 @@ package Servlet;
 //jamie
 import Controller.Appointment;
 import Controller.Appointments;
+import Controller.Customer;
 import Controller.ErrorHandler;
 
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -26,15 +28,26 @@ public class CreateAppoitmentServlet extends HttpServlet
         request.setAttribute("appointmentStartDate", request.getDateHeader("app_start_date"));
         request.setAttribute("appointmentSessionLength", request.getParameter("app_session_length"));
         request.setAttribute("appointmentNote", request.getParameter("app_note"));
+        request.setAttribute("customer_id", request.getParameter("customer_id"));
+        request.setAttribute("userId", request.getSession(false).getAttribute("loginSession"));
 
-        appointments.newAppointment(request.getParameter("app_start_date"),
-                request.getParameter("app_session_length"), request.getParameter("app_note"));
+        String customer_id = request.getParameter("customer_id");
+        String user_id = request.getParameter("user_id");
+
+
+        appointments.newAppointment(request.getParameter("app_start_date"), request.getParameter("app_session_length"), request.getParameter("app_note"), user_id, customer_id);
+
         request.setAttribute("errorMessage", "Ny tid er blevet oprettet"); //Show confirm msg on jsp
         request.getRequestDispatcher("/create_appointment.jsp").forward(request, response);
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        request.getSession(false).getAttribute("loginSession");
+        request.setAttribute("userId", request.getSession(false).getAttribute("loginSession"));
+
+        request.setAttribute("customer_id", request.getParameter("customer_id"));
+
+        request.getRequestDispatcher("/create_appointment.jsp").forward(request, response);
     }
 }

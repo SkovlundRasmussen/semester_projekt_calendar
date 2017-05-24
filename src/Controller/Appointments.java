@@ -22,11 +22,11 @@ public class Appointments {
         return appointments;
     }
 
-    public void newAppointment(String appointmentStartDate, String appointmentSessionLength, String appointmentNote)
+    public void newAppointment(String appointmentStartDate, String appointmentSessionLength, String appointmentNote, String userId, String customerId)
     {
         AppointmentHandler appointmentHandler = new AppointmentHandler();
 
-        appointmentHandler.newAppointment(appointmentStartDate, appointmentSessionLength, appointmentNote);
+        appointmentHandler.newAppointment(appointmentStartDate, appointmentSessionLength, appointmentNote, userId, customerId);
 
     }
 }

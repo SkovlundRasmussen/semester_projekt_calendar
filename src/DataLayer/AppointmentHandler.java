@@ -16,17 +16,17 @@ public class AppointmentHandler
 {
     DatabaseHandler databaseHandler = new DatabaseHandler();
 
-    public void newAppointment (String appointmentStartDate, String appointmentSessionLength, String appointmentNote) {
+    public void newAppointment (String appointmentStartDate, String appointmentSessionLength, String appointmentNote, String userId, String customerId) {
         PreparedStatement preparedStatement = null;
         Connection conn = null;
-
+        int key;
         String sql = "INSERT INTO appointments (app_start_date, app_session_length, app_note) VALUES (?, ?, ?)";
+        String customer_user_app_sql = "INSERT INTO user_customer_app_link (user_id, customer_id, app_id) VALUES(?, ?, ?)";
 
         try
         {
             conn = databaseHandler.getConnection();
-
-            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement =	conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             preparedStatement.setString(1, appointmentStartDate);
             preparedStatement.setString(2, appointmentSessionLength);
@@ -34,9 +34,21 @@ public class AppointmentHandler
 
             preparedStatement.executeUpdate();
 
-            System.out.println("UPDATE");
+            ResultSet keys = preparedStatement.getGeneratedKeys();
+
+            keys.next();
+            key = keys.getInt(1);
+
+            preparedStatement =	conn.prepareStatement(customer_user_app_sql);
+            preparedStatement.setInt(1, Integer.parseInt(userId));
+            preparedStatement.setInt(2, Integer.parseInt(customerId));
+            preparedStatement.setInt(3, key);
+            preparedStatement.executeUpdate();
+
             preparedStatement.close();
             conn.close();
+
+            System.out.println("UPDATE");
         }
         catch (SQLException e)
         {

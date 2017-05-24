@@ -32,6 +32,9 @@
                     <c:url var="id_url" value="${customer.getCustomerID()}"/>
                     <a href="edit_customer?customer_id=${customer.getCustomerID()}">Rediger</a>
                 </td>
+                <td>
+                    <a href="appointment?customer_id=${customer.getCustomerID()}">Ny tid</a>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
