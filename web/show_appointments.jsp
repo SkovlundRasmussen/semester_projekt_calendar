@@ -8,28 +8,21 @@
     request.setAttribute("appointments", appointmentsList);
 %>
 <head>
-    <title>Title</title>
+    <title>Se tider</title>
 </head>
 <body>
 <%@include file="includes/header.jsp" %>
 
 
 <div id="wrapper">
+
+    <h1>Se tid</h1>
+    <form action="/show_appointment" method="post"> <%-- Set action --%>
+
     <table>
         <thead>
         <tr>
-            <th>
-                ID
-            </th>
-            <th>
-                Start
-            </th>
-            <th>
-                Length
-            </th>
-            <th>
-                Note
-            </th>
+            <th>ID</th><th>Start</th><th>Length</th><th>Note</th>
         </tr>
 
         </thead>
@@ -41,7 +34,8 @@
                 <td><c:out value="${appointment.getAppointmentDate()}"/></td>
                 <td><c:out value="${appointment.getAppointmentLength()}"/></td>
                 <td><c:out value="${appointment.getAppointmentNote()}"/></td>
-
+                <td><c:url var="id_url" value="${appointment.getAppointmentID()}"/>
+                    <a href="edit_appointment?appointment_id=${appointment.getAppointmentID()}">Rediger</a></td>
 
             </tr>
         </c:forEach>

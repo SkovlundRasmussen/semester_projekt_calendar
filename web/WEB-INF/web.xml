@@ -86,5 +86,17 @@
         <url-pattern>/edit_customer</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>EditAppointment</servlet-name>
+        <servlet-class>Servlet.EditAppointmentServlet</servlet-class>
+        <load-on-startup>8</load-on-startup>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>EditAppointment</servlet-name>
+        <url-pattern>/edit_appointment</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
