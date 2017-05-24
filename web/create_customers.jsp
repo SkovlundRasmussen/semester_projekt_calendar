@@ -7,10 +7,15 @@
 
 <body>
     <%@include file="includes/header.jsp" %>
+
 </body>
 
 <div id="wrapper">
 
+    <div>
+
+
+    </div>
 <h1>Opret ny kunde</h1>
 <form action="/create_customers" method="post"> <%-- Set action --%>
 
@@ -37,10 +42,10 @@
         <input type="text" name="phoneNumber" id="phone-number" width="30" maxlength="8" minlength="8" placeholder="22446688"/>
     </div>
 
-    <input type="submit" value="Opret"/>
+    <input class="btn" type="submit" value="Opret"/>
     <p style="color: red;">${errorMessage}</p>
 </form>
 
 </div>
-
+<%@include file="includes/footer.jsp" %>
 </html>

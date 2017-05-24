@@ -38,7 +38,7 @@
            </div>
 
             <div>
-                <input type="submit" value="Opret"/>
+                <input class="btn" type="submit" value="Opret"/>
             </div>
 
             <p style="color: red;">${errorMessage}</p>
@@ -46,4 +46,6 @@
         </form>
 
     </div>
+    <%@include file="includes/footer.jsp" %>
+
 </html>

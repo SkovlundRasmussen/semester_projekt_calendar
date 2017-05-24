@@ -12,6 +12,7 @@
 </head>
 <body>
 <%@include file="includes/header.jsp" %>
+
 </body>
 <div id="wrapper">
 
@@ -37,8 +38,9 @@
             <input type="text" name="app_note" width="30" id="appointment-note-label"/>
         </div>
 
-            <input type="submit" value="Opret"/>
+            <input class="btn" type="submit" value="Opret"/>
             <p style="color: red;">${errorMessage}</p>
     </form>
 </div>
+<%@include file="includes/footer.jsp" %>
 </html>

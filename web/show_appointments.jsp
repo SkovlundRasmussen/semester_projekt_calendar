@@ -14,6 +14,8 @@
 <%@include file="includes/header.jsp" %>
 
 
+<div class="wrapper">
+    <table class="tbl">
 <div id="wrapper">
 
     <h1>Se tid</h1>
@@ -22,7 +24,7 @@
     <table>
         <thead>
         <tr>
-            <th>ID</th><th>Start</th><th>Length</th><th>Note</th>
+            <th>ID</th><th>Startstid</th><th>Antal timer</th><th>Note</th><th>Rediger aftale</th>
         </tr>
 
         </thead>

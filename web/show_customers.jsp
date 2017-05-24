@@ -15,10 +15,10 @@
 <body>
 <%@include file="includes/header.jsp" %>
 
-<div id="wrapper">
+<div class="wrapper">
     <table>
         <thead>
-        <tr><th>ID</th><th>Name</th><th>Phone</th></tr>
+        <tr><th>ID</th><th>Navn</th><th>Tlf</th><th>Rediger kunde</th><th>Opret tid</th></tr>
         </thead>
 
         <tbody>
@@ -37,6 +37,8 @@
         </tbody>
     </table>
 </div>
+
+<%@include file="includes/footer.jsp" %>
 </body>
 </html>
 <%--Kristain--%>
