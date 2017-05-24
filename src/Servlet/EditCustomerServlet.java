@@ -4,7 +4,6 @@ import Controller.Customer;
 import Controller.Customers;
 import DataLayer.AppointmentHandler;
 import DataLayer.CustomerHandler;
-import DataLayer.UserHandler;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

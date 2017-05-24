@@ -12,6 +12,7 @@ import java.util.List;
 //Nichlas Buer Toldam
 public class Users
 {
+    UserHandler userHandler = new UserHandler();
     private List getUserList()
     {
         List<User> userList = new LinkedList<>();
@@ -21,9 +22,10 @@ public class Users
 
     public void newUser(String userName, String userPass)
     {
-        UserHandler userHandler = new UserHandler();
 
         userHandler.newUser(userName, userPass);
 
     }
+
+
 }

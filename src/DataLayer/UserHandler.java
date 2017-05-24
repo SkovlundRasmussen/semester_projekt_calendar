@@ -1,6 +1,11 @@
 package DataLayer;
 
+import Controller.User;
+
 import java.sql.*;
+
+import java.util.*;
+import java.util.Date;
 
 
 /**
@@ -10,6 +15,7 @@ public class UserHandler
 {
 
     DatabaseHandler databaseHandler = new DatabaseHandler();
+
 
     public void newUser(String userName, String userPass)
     {
@@ -34,16 +40,51 @@ public class UserHandler
             preparedStatement.close();
             conn.close();
         }
-
         catch (SQLException e)
         {
             e.printStackTrace();
         }
-
         finally
         {
             databaseHandler.sqlEx(preparedStatement, conn);
         }
     }
 
+    public void editUser(String password, String userID)
+    {
+
+
+        PreparedStatement preparedStatement = null;
+        Connection conn = null;
+
+
+        String sql = "UPDATE users SET user_pass = ? WHERE user_id = ?";
+
+
+        try {
+            conn = databaseHandler.getConnection();
+            preparedStatement = conn.prepareStatement(sql);
+
+            preparedStatement.setString(1, password );
+            preparedStatement.setString(2, userID);
+
+
+            preparedStatement.executeUpdate();
+
+            System.out.println("UPDATE");
+            preparedStatement.close();
+            conn.close();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            databaseHandler.sqlEx(preparedStatement, conn);
+        }
+
+    }
+
 }
+

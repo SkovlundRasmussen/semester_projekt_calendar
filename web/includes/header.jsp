@@ -13,7 +13,6 @@
     <title>Title</title>
 </head>
 <body>
-
     <header id="top_header">
         <h1>Hamann & Frk. Juhl Tattoo</h1>
     </header>
@@ -27,6 +26,7 @@
             <li><a href="../show_customers">Alle kunder</a></li>
             <li><a href="../create_appointment.jsp">Ny tid </a></li>
             <li><a href="../show_appointment">Alle tider </a></li>
+            <li><a href="../edit_user">Nyt password</a></li>
             <li><a href="">Logud</a></li>
         </ul>
     </nav>

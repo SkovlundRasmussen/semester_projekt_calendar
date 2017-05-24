@@ -87,6 +87,17 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>EditUser</servlet-name>
+        <servlet-class>Servlet.EditUserServlet</servlet-class>
+        <load-on-startup>5</load-on-startup>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>EditUser</servlet-name>
+        <url-pattern>/edit_user</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>Logout</servlet-name>
         <servlet-class>Servlet.LogoutServlet</servlet-class>
         <load-on-startup>4</load-on-startup>
