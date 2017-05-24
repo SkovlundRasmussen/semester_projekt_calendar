@@ -2,6 +2,7 @@ package Servlet;
 
 import Controller.Customer;
 import Controller.Customers;
+import DataLayer.AppointmentHandler;
 import DataLayer.CustomerHandler;
 import DataLayer.UserHandler;
 
@@ -21,7 +22,7 @@ public class EditCustomerServlet extends HttpServlet {
 
     //Nichlas
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Entering EditCustomerServlet-doPost");
+        System.out.println("Entering EditAppointmentServlet-doPost");
         CustomerHandler customerHandler = new CustomerHandler();
 
         //users.newUser(request.getParameter("userName"), request.getParameter("userPass"));

@@ -9,7 +9,8 @@
 </head>
 
 <body>
-<%@include file="includes/header.jsp" %>
+<%@include file="includes/header.jsp" %>'
+
 </body>
 
 <div id="wrapper">
@@ -34,11 +35,12 @@
             <input type="text" name="phoneNumber" id="phone-number" width="30" maxlength="8" minlength="8" placeholder="22446688" value="<c:out value="${customer.getCustomerPhoneNumber()}"/>"/>
         </div>
 
-        <input type="submit" value="Rediger"/>
+        <input class="btn" type="submit" value="Rediger"/>
         <p style="color: red;">${errorMessage}</p>
 
     </form>
 
 </div>
+<%@include file="includes/footer.jsp" %>
 
 </html>

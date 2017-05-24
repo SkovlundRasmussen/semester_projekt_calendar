@@ -103,4 +103,51 @@ public class AppointmentHandler
 //Slet senere
         return appointments;
     }
+
+    public Appointment getAppointment (String appointmentId)
+    {
+        PreparedStatement preparedStatement = null;
+        ResultSet rs = null;
+        Connection conn = null;
+
+        Appointment appointment = null;
+
+        int appointment_id;
+        String appointmentStartDate;
+        String appointmentSessionLength;
+        String appointmentNote;
+
+
+        String sql = "SELECT app_id, app_start_date, app_session_length, app_note  FROM appointments WHERE app_id=?";
+
+
+        try{
+            conn = databaseHandler.getConnection();
+
+            preparedStatement =	conn.prepareStatement(sql);
+            preparedStatement.setString(1, appointmentId);
+            rs = preparedStatement.executeQuery();
+
+            if(rs.next()) // Kommer der et hit ud fra DB bliver der lavet et nyt Customer Objekt.
+            {
+                appointment_id = rs.getInt("app_id");
+                appointmentStartDate = rs.getString("app_start_date");
+                appointmentSessionLength = rs.getString("app_session_length");
+                appointmentNote = rs.getString("app_note");
+
+                appointment = new Appointment(appointment_id, appointmentStartDate, appointmentSessionLength, appointmentNote);
+
+                // Eksekvere return før finally?
+                return appointment;
+            }
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            databaseHandler.sqlEx(preparedStatement, conn);
+            if (rs != null) try { rs.close(); } catch (SQLException logOrIgnore) {}
+        }
+        return appointment;
+    }
 }

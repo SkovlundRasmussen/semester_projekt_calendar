@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class Appointments {
 
-    public List getAppointments()
+    public List<Appointment> getAppointments() // Returnere et Appointment Objekter
     {
         AppointmentHandler appointmentHandler = new AppointmentHandler();
         List<Appointment> appointments;
@@ -23,6 +23,15 @@ public class Appointments {
     }
 
     public void newAppointment(String appointmentStartDate, String appointmentSessionLength, String appointmentNote, String userId, String customerId)
+    public Appointment getAppointment (String appointmentID) // Returnere et Appointment Objekt
+    {
+        AppointmentHandler appointmentHandler = new AppointmentHandler();
+        Appointment appointment = appointmentHandler.getAppointment(appointmentID);
+        return appointment;
+
+    }
+
+    public void newAppointment(String appointmentStartDate, String appointmentSessionLength, String appointmentNote)
     {
         AppointmentHandler appointmentHandler = new AppointmentHandler();
 

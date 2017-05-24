@@ -36,5 +36,6 @@
   <div id="wrapper">
   </div>
   <div id='calendar'></div>
+  <%@include file="includes/footer.jsp" %>
   </body>
 </html>
