@@ -2,6 +2,8 @@ package Servlet;
 
 import Controller.Customers;
 import Controller.ErrorHandler;
+import Controller.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +38,11 @@ public class CreateCustomerServlet extends HttpServlet implements ServletInterfa
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        System.out.println("Entering doGet Create Customer");
+        request.getSession(false).getAttribute("loginSession");
+        request.setAttribute("userId", request.getSession(false).getAttribute("loginSession"));
 
+        request.getRequestDispatcher("/create_customers.jsp").forward(request, response);
     }
 
     //Nichlas
@@ -54,7 +60,9 @@ public class CreateCustomerServlet extends HttpServlet implements ServletInterfa
         if (error)
         {
             System.out.println("Data is stored in database");
-            customers.newCustomer(request.getParameter("firstName"), request.getParameter("lastName"), request.getParameter("phoneNumber"));
+
+           // int userId = user.getUserID();
+            customers.newCustomer(request.getParameter("firstName"), request.getParameter("lastName"), request.getParameter("phoneNumber"), request.getParameter("user_id"));
             request.setAttribute("errorMessage", "Ny kunde er blevet oprettet"); //Show confirm msg on jsp
             request.getRequestDispatcher("/create_customers.jsp").forward(request, response);
         }

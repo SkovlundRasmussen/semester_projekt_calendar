@@ -8,22 +8,24 @@
     ArrayList customersList = (ArrayList) session.getAttribute("customers");
     request.setAttribute("customers", customersList);
 %>
+
 <head>
     <title>Title</title>
 </head>
 <body>
 <%@include file="includes/header.jsp" %>
-<div id="wrapper">
+
+<div class="wrapper">
     <table>
         <thead>
-        <tr><th>ID</th><th>Name</th><th>Phone</th></tr>
+        <tr><%--<th>ID</th>--%><th>Navn</th><th>Tlf</th><th>Rediger kunde</th><th>Opret tid</th></tr>
         </thead>
 
         <tbody>
 
         <c:forEach items="${customers}" var="customer">
             <tr>
-                <td><c:out value="${customer.getCustomerID()}"/></td>
+                <%--<td><c:out value="${customer.getCustomerID()}"/></td>--%>
                 <td><c:out value="${customer.getCustomerName()}"/> <c:out value="${customer.getCustomerLastname()}"/></td>
                 <td><c:out value="${customer.getCustomerPhoneNumber()}"/></td>
                 <td>
@@ -35,6 +37,8 @@
         </tbody>
     </table>
 </div>
+
+<%@include file="includes/footer.jsp" %>
 </body>
 </html>
 <%--Kristain--%>

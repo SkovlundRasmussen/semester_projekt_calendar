@@ -2,6 +2,7 @@ package Servlet;
 
 import Controller.Customer;
 import Controller.Customers;
+import DataLayer.AppointmentHandler;
 import DataLayer.CustomerHandler;
 
 import javax.servlet.ServletException;
@@ -20,7 +21,7 @@ public class EditCustomerServlet extends HttpServlet {
 
     //Nichlas
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Entering EditCustomerServlet-doPost");
+        System.out.println("Entering EditAppointmentServlet-doPost");
         CustomerHandler customerHandler = new CustomerHandler();
 
         //users.newUser(request.getParameter("userName"), request.getParameter("userPass"));
@@ -28,7 +29,6 @@ public class EditCustomerServlet extends HttpServlet {
         request.setAttribute("firstName", request.getParameter("firstName"));
         request.setAttribute("lastName", request.getParameter("lastName"));
         request.setAttribute("phoneNumber", request.getParameter("phoneNumber"));
-
         request.setAttribute("customer_id", request.getParameter("customerID"));
 
         customerHandler.editCustomer(request.getParameter("firstName"), request.getParameter("lastName"), request.getParameter("phoneNumber"), request.getParameter("customerID"));
@@ -45,9 +45,6 @@ public class EditCustomerServlet extends HttpServlet {
         HttpSession getCustomerSession = request.getSession(true);
 
         getCustomerSession.setAttribute("customer", customer);
-
-
-        /*request.setAttribute("customers", customerList);*/
 
         request.getRequestDispatcher("/edit_customer.jsp").forward(request, response);
     }

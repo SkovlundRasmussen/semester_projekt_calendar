@@ -13,13 +13,21 @@ import java.util.List;
  */
 public class Appointments {
 
-    public List getAppointments()
+    public List<Appointment> getAppointments() // Returnere et Appointment Objekter
     {
         AppointmentHandler appointmentHandler = new AppointmentHandler();
         List<Appointment> appointments;
 
         appointments = appointmentHandler.getAppointments();
         return appointments;
+    }
+
+    public Appointment getAppointment (String appointmentID) // Returnere et Appointment Objekt
+    {
+        AppointmentHandler appointmentHandler = new AppointmentHandler();
+        Appointment appointment = appointmentHandler.getAppointment(appointmentID);
+        return appointment;
+
     }
 
     public void newAppointment(String appointmentStartDate, String appointmentSessionLength, String appointmentNote)

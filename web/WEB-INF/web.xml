@@ -97,5 +97,27 @@
         <servlet-name>EditUser</servlet-name>
         <url-pattern>/edit_user</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>Servlet.LogoutServlet</servlet-class>
+        <load-on-startup>4</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>EditAppointment</servlet-name>
+        <servlet-class>Servlet.EditAppointmentServlet</servlet-class>
+        <load-on-startup>8</load-on-startup>
+    </servlet>
 
+
+    <servlet-mapping>
+        <servlet-name>EditAppointment</servlet-name>
+        <url-pattern>/edit_appointment</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
 </web-app>

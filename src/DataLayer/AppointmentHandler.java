@@ -16,6 +16,43 @@ public class AppointmentHandler
 {
     DatabaseHandler databaseHandler = new DatabaseHandler();
 
+    public void editAppointment (String appointmentStartDate, String appointmentSessionLength, String appointmentNote, String id)
+    {
+        PreparedStatement preparedStatement = null;
+
+        Connection conn = null;
+
+        String sql = "UPDATE appointments SET app_start_date = ?, app_session_length = ?, app_note = ? WHERE app_id = ?;";
+
+        try
+        {
+            conn = databaseHandler.getConnection();
+
+            preparedStatement =	conn.prepareStatement(sql);
+
+            preparedStatement.setString(1, appointmentStartDate);
+            preparedStatement.setString(2, appointmentSessionLength);
+            preparedStatement.setString(3, appointmentNote);
+            preparedStatement.setString(4, id);
+
+            preparedStatement.executeUpdate();
+
+            System.out.println("UPDATE");
+            preparedStatement.close();
+            conn.close();
+        }
+
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        finally
+        {
+            databaseHandler.sqlEx(preparedStatement, conn);
+        }
+    }
+
     public void newAppointment (String appointmentStartDate, String appointmentSessionLength, String appointmentNote) {
         PreparedStatement preparedStatement = null;
         Connection conn = null;
@@ -61,7 +98,7 @@ public class AppointmentHandler
 
         List<Appointment> appointments = new ArrayList<Appointment>();
 
-        String sql = "SELECT * FROM appointments"; // WHERE SESSION USER_ID = ?
+        String sql = "SELECT * FROM appointments "; // WHERE SESSION USER_ID = ?
 
         try {
 
@@ -90,5 +127,52 @@ public class AppointmentHandler
         }
 //Slet senere
         return appointments;
+    }
+
+    public Appointment getAppointment (String appointmentId)
+    {
+        PreparedStatement preparedStatement = null;
+        ResultSet rs = null;
+        Connection conn = null;
+
+        Appointment appointment = null;
+
+        int appointment_id;
+        String appointmentStartDate;
+        String appointmentSessionLength;
+        String appointmentNote;
+
+
+        String sql = "SELECT app_id, app_start_date, app_session_length, app_note  FROM appointments WHERE app_id=?";
+
+
+        try{
+            conn = databaseHandler.getConnection();
+
+            preparedStatement =	conn.prepareStatement(sql);
+            preparedStatement.setString(1, appointmentId);
+            rs = preparedStatement.executeQuery();
+
+            if(rs.next()) // Kommer der et hit ud fra DB bliver der lavet et nyt Customer Objekt.
+            {
+                appointment_id = rs.getInt("app_id");
+                appointmentStartDate = rs.getString("app_start_date");
+                appointmentSessionLength = rs.getString("app_session_length");
+                appointmentNote = rs.getString("app_note");
+
+                appointment = new Appointment(appointment_id, appointmentStartDate, appointmentSessionLength, appointmentNote);
+
+                // Eksekvere return før finally?
+                return appointment;
+            }
+
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            databaseHandler.sqlEx(preparedStatement, conn);
+            if (rs != null) try { rs.close(); } catch (SQLException logOrIgnore) {}
+        }
+        return appointment;
     }
 }

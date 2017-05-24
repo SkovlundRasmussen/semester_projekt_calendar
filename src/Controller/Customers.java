@@ -27,10 +27,12 @@ public class Customers {
         }
         //Kristian
 
-        public void newCustomer(String firstName, String lastName, String phoneNumber)
+        public void newCustomer(String firstName, String lastName, String phoneNumber, String userId)
         {
             boolean error = false;
             CustomerHandler customerHandler = new CustomerHandler();
+
+      //      userId = userId.getCustomerID();
 
             if (ErrorHandler.IsAValidNumber(phoneNumber))
             {
@@ -46,7 +48,7 @@ public class Customers {
             }
             if (!error)
             {
-                customerHandler.newCustomer(firstName, lastName, phoneNumber);
+                customerHandler.newCustomer(firstName, lastName, phoneNumber, userId);
             }
         }
 
