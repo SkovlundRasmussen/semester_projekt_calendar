@@ -23,7 +23,7 @@
             <li><a href="../index.jsp">Hjem</a></li>
             <li><a href="../create_user.jsp">Ny bruger</a></li>
            <%-- <li><a href="../user.jsp">Alle brugere</a></li>--%>
-            <li><a href="../create_customers.jsp">Ny kunde</a></li>
+            <li><a href="../create_customers">Ny kunde</a></li>
             <li><a href="../show_customers">Alle kunder</a></li>
             <li><a href="../create_appointment.jsp">Ny tid </a></li>
             <li><a href="../show_appointment">Alle tider </a></li>

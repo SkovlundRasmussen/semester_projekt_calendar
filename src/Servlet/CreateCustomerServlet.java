@@ -39,9 +39,9 @@ public class CreateCustomerServlet extends HttpServlet implements ServletInterfa
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         System.out.println("Entering doGet Create Customer");
+
         request.getSession(false).getAttribute("loginSession");
         request.setAttribute("userId", request.getSession(false).getAttribute("loginSession"));
-
         request.getRequestDispatcher("/create_customers.jsp").forward(request, response);
     }
 

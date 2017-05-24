@@ -45,7 +45,6 @@ public class CreateAppoitmentServlet extends HttpServlet
 
         request.getSession(false).getAttribute("loginSession");
         request.setAttribute("userId", request.getSession(false).getAttribute("loginSession"));
-
         request.setAttribute("customer_id", request.getParameter("customer_id"));
 
         request.getRequestDispatcher("/create_appointment.jsp").forward(request, response);
