@@ -1,7 +1,7 @@
 *
 {
     margin: 0;
-    padding: 0;
+    padding: 0px;
 }
 #top_header
 {
@@ -14,8 +14,8 @@
 #main_nav ul
 {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin: 2px;
+    padding: 2px;
     overflow: hidden;
     background-color: #333;
 }
@@ -42,8 +42,8 @@
 #footer ul
 {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin: 2px;
+    padding: 2px;
     overflow: hidden;
     background-color: #333;
 }
@@ -79,9 +79,9 @@
 
 .wrapper
 {
-    border: 1px solid black;
+
     padding: 2px;
-    /*border-collapse: collapse;*/
+    border-collapse: collapse;
     width: 100%;
 
 }
@@ -96,19 +96,6 @@
 {
     background-color: lightgray
 }
-/*
-
-#appointment-session-length-label
-{
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-*/
-
 form
 {
     border: 3px solid #f1f1f1;
