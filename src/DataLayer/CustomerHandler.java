@@ -50,26 +50,39 @@ public class CustomerHandler
     }
 
 
-    public void newCustomer(String firstName, String lastName, String phoneNumber)
+    public void newCustomer(String firstName, String lastName, String phoneNumber, String userId)
     {
         PreparedStatement preparedStatement = null;
         Connection conn = null;
 
-        String sql = "INSERT INTO customers(customer_first_name, customer_last_name, phone_nr) VALUES (?, ?, ?)";
+        int key;
+
+        String customer_sql = "INSERT INTO customers(customer_first_name, customer_last_name, phone_nr) VALUES (?, ?, ?)";
+        String customer_to_user_sql = "INSERT INTO customers_to_user(user_id, customer_id) VALUES(?, ?)";
 
         try
         {
-        conn = databaseHandler.getConnection();
+            conn = databaseHandler.getConnection();
 
-        preparedStatement =	conn.prepareStatement(sql);
-
+            preparedStatement =	conn.prepareStatement(customer_sql, Statement.RETURN_GENERATED_KEYS);
             prepareStatements(firstName, lastName, phoneNumber, preparedStatement);
-
             preparedStatement.executeUpdate();
 
-            System.out.println("UPDATE");
+            ResultSet keys = preparedStatement.getGeneratedKeys();
+
+            keys.next();
+            key = keys.getInt(1);
+
+            preparedStatement =	conn.prepareStatement(customer_to_user_sql);
+            preparedStatement.setInt(1, Integer.parseInt(userId));
+            preparedStatement.setInt(2, key);
+            preparedStatement.executeUpdate();
+
             preparedStatement.close();
             conn.close();
+
+            System.out.println("UPDATE");
+
         }
 
        catch (SQLException e)
@@ -152,9 +165,7 @@ public class CustomerHandler
         String last_name;
         String phone_nr;
 
-
         String sql = "SELECT * FROM customers WHERE customer_id=?";
-
 
         try{
             conn = databaseHandler.getConnection();

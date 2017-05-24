@@ -8,11 +8,13 @@
     ArrayList customersList = (ArrayList) session.getAttribute("customers");
     request.setAttribute("customers", customersList);
 %>
+
 <head>
     <title>Title</title>
 </head>
 <body>
 <%@include file="includes/header.jsp" %>
+
 <div id="wrapper">
     <table>
         <thead>

@@ -2,6 +2,7 @@ package Servlet;
 
 import Controller.Customer;
 import Controller.Customers;
+import Controller.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,17 +29,26 @@ public class ShowCustomerServlet extends HttpServlet implements ServletInterface
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        System.out.println("SHOW CUSTOMERS");
-        Customers customers = new Customers();
-        List<Customer> customerList = customers.getCustomers();
+        if(request.getSession(false).getAttribute("loginSession") != null)
+        {
+            System.out.println("SHOW CUSTOMERS");
+            Customers customers = new Customers();
+            List<Customer> customerList = customers.getCustomers();
 
-        HttpSession session = request.getSession(true);
+            HttpSession session = request.getSession(true);
 
-        session.setAttribute("customers", customerList);
+            session.setAttribute("customers", customerList);
 
-        request.setAttribute("customers", customerList);
+            request.setAttribute("customers", customerList);
 
-        request.getRequestDispatcher("/show_customers.jsp").forward(request, response);
+            request.getRequestDispatcher("/show_customers.jsp").forward(request, response);
+        }
+        else
+        {
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+        }
+
+
     }
 
 

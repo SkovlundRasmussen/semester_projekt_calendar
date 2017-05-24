@@ -30,7 +30,6 @@ public class EditCustomerServlet extends HttpServlet {
         request.setAttribute("firstName", request.getParameter("firstName"));
         request.setAttribute("lastName", request.getParameter("lastName"));
         request.setAttribute("phoneNumber", request.getParameter("phoneNumber"));
-
         request.setAttribute("customer_id", request.getParameter("customerID"));
 
         customerHandler.editCustomer(request.getParameter("firstName"), request.getParameter("lastName"), request.getParameter("phoneNumber"), request.getParameter("customerID"));
@@ -47,9 +46,6 @@ public class EditCustomerServlet extends HttpServlet {
         HttpSession getCustomerSession = request.getSession(true);
 
         getCustomerSession.setAttribute("customer", customer);
-
-
-        /*request.setAttribute("customers", customerList);*/
 
         request.getRequestDispatcher("/edit_customer.jsp").forward(request, response);
     }
