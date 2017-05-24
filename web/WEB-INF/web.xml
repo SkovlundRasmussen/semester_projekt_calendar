@@ -86,5 +86,15 @@
         <url-pattern>/edit_customer</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>Servlet.LogoutServlet</servlet-class>
+        <load-on-startup>4</load-on-startup>
+    </servlet>
 
+
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
 </web-app>
