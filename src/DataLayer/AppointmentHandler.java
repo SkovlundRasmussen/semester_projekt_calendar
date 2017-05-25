@@ -16,6 +16,11 @@ public class AppointmentHandler
 {
     DatabaseHandler databaseHandler = new DatabaseHandler();
 
+    public void deleteAppointment(String id)
+    {
+
+    }
+
     public void newAppointment (String appointmentStartDate, String appointmentSessionLength, String appointmentNote, String userId, String customerId) {
         PreparedStatement preparedStatement = null;
         Connection conn = null;
