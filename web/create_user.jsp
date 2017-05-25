@@ -24,17 +24,17 @@
 
            <div>
                    <label for="user-name-label">Brugernavn:</label>
-                   <input type="text" name="userName" width="30" placeholder="Brugernavn" id="user-name-label"/>
+                   <input type="text" name="userName" width="30" placeholder="Brugernavn" id="user-name-label" required/>
            </div>
 
            <div>
                    <label for="password-label">Password:</label>
-                   <input type="password" name="userPass" width="30" id="password-label"/>
+                   <input type="password" name="userPass" width="30" id="password-label" required/>
            </div>
 
            <div>
                <label for="second-password-label">Gentag password:</label>
-               <input type="password" name="userPass2" width="30" id="second-password-label"/>
+               <input type="password" name="userPass2" width="30" id="second-password-label" required/>
            </div>
 
             <div>

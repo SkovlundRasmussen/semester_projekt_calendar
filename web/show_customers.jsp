@@ -19,19 +19,15 @@
         <input type="text" name="userId" value="<c:out value="${user_id.getUserID()}"/>"/>--%>
         <c:forEach items="${customers}" var="customer">
             <tr>
-                <%--<td><c:out value="${customer.getCustomerID()}"/></td>--%>
+                <td><c:out value="${customer.getCustomerID()}"/></td>
                 <td><c:out value="${customer.getCustomerName()}"/> <c:out value="${customer.getCustomerLastname()}"/></td>
                 <td><c:out value="${customer.getCustomerPhoneNumber()}"/></td>
                 <td>
                     <c:url var="id_url" value="${customer.getCustomerID()}"/>
                     <a href="edit_customer?customer_id=${customer.getCustomerID()}">Rediger</a>
                 </td>
-                <td>
-                    <a href="appointment?customer_id=${customer.getCustomerID()}">Ny tid</a>
-                </td>
             </tr>
         </c:forEach>
-        </tbody>
     </table>
 </div>
 

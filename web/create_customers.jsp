@@ -12,27 +12,24 @@
 
 <div id="wrapper">
 
-    <div>
 
-
-    </div>
 <h1>Opret ny kunde</h1>
 <form action="/create_customers" method="post"> <%-- Set action --%>
 
     <div>
         <input type="hidden" name="user_id" value="<c:out value="${userId}"/>">
         <label for="first-name" id="first-name-label">Fornavn:</label>
-        <input type="text" name="firstName" width="30" placeholder="Fornavn" id="first-name"/>
+        <input type="text" name="firstName" width="30" placeholder="Fornavn" id="first-name" required/>
     </div>
 
     <div>
         <label for="last-name" id="last-name-label">Efternavn:</label>
-        <input type="text" name="lastName" width="30" placeholder="Efternavn" id="last-name"/>
+        <input type="text" name="lastName" width="30" placeholder="Efternavn" id="last-name" required/>
     </div>
 
     <div>
         <label for="phone-number" id="phone-number-label">Telefon:</label>
-        <input type="text" name="phoneNumber" id="phone-number" width="30" maxlength="8" minlength="8" placeholder="22446688"/>
+        <input type="text" name="phoneNumber" id="phone-number" width="30" maxlength="8" minlength="8" placeholder="22446688" required/>
     </div>
 
     <input class="btn" type="submit" value="Opret"/>
