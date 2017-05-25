@@ -19,15 +19,8 @@
 <h1>Opret ny kunde</h1>
 <form action="/create_customers" method="post"> <%-- Set action --%>
 
-    <%--
     <div>
-        <label for="customerID" id="customerID-label">Kunde ID:</label>
-        <label type="text" name="userID" width="30" id="customerID"/>
-    </div>
-    --%>
-
-    <div>
-        <input type="hidden" name="user_id" value="<c:out value="${userId.getUserID()}"/>">
+        <input type="hidden" name="user_id" value="<c:out value="${userId}"/>">
         <label for="first-name" id="first-name-label">Fornavn:</label>
         <input type="text" name="firstName" width="30" placeholder="Fornavn" id="first-name"/>
     </div>

@@ -1,6 +1,7 @@
 package Servlet;
 
 import Controller.Login;
+import Controller.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +23,12 @@ public class LoginServlet extends HttpServlet {
         if (login.isValidUserCredentials(request.getParameter("loginname"), request.getParameter("password")) != null) {
 
             HttpSession loginSession = request.getSession(true);
-            loginSession.setAttribute("loginSession",login.isValidUserCredentials(request.getParameter("loginname"), request.getParameter("password")));
+            User user = login.isValidUserCredentials(request.getParameter("loginname"), request.getParameter("password"));
+
+            loginSession.setAttribute("user_id", user.getUserID());
+            loginSession.setAttribute("user_name", user.getUserName());
+            loginSession.setAttribute("user_type", user.getUserType());
+
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         } else{
             request.setAttribute("errorMessage", "Invalid login and password. Try again");

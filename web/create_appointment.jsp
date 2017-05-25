@@ -21,8 +21,8 @@
     <form action="/appointment" method="post">
 
         <div>
-            <input type="hidden" name="customer_id" value="<c:out value="${customer_id}"/>"/>
-            <input type="hidden" name="user_id" value="<c:out value="${userId.getUserID()}"/>" />
+            <input type="text" name="customer_id" value="<c:out value="${customer_id}"/>"/>
+            <input type="text" name="user_id" value="<c:out value="${user_id}"/>" />
             <label for="appointment-start-date-label">Appointment start date:</label>
             <input type="datetime-local" name="app_start_date" width="30" placeholder="Appointment start date"
                    id="appointment-start-date-label" maxlength="19" minlength="19" placeholder="2017-05-17 13:38:49"/>

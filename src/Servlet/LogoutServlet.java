@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -17,9 +18,13 @@ public class LogoutServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getSession(false).getAttribute("loginSession") != null)
+        HttpSession session = request.getSession(true);
+        String user_id = session.getAttribute("user_id").toString();
+        if(user_id != null)
         {
-            request.getSession().removeAttribute("loginSession");
+            request.getSession().removeAttribute("user_id");
+            request.getSession().removeAttribute("user_name");
+            request.getSession().removeAttribute("user_type");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
         else

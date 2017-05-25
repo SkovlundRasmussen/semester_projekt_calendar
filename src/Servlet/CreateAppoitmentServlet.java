@@ -29,13 +29,15 @@ public class CreateAppoitmentServlet extends HttpServlet
         request.setAttribute("appointmentSessionLength", request.getParameter("app_session_length"));
         request.setAttribute("appointmentNote", request.getParameter("app_note"));
         request.setAttribute("customer_id", request.getParameter("customer_id"));
-        request.setAttribute("userId", request.getSession(false).getAttribute("loginSession"));
 
+        HttpSession session = request.getSession(true);
+        String user_id = session.getAttribute("user_id").toString();
         String customer_id = request.getParameter("customer_id");
-        String user_id = request.getParameter("user_id");
 
-
-        appointments.newAppointment(request.getParameter("app_start_date"), request.getParameter("app_session_length"), request.getParameter("app_note"), user_id, customer_id);
+        if(user_id != null)
+        {
+            appointments.newAppointment(request.getParameter("app_start_date"), request.getParameter("app_session_length"), request.getParameter("app_note"), user_id, customer_id);
+        }
 
         request.setAttribute("errorMessage", "Ny tid er blevet oprettet"); //Show confirm msg on jsp
         request.getRequestDispatcher("/create_appointment.jsp").forward(request, response);
@@ -43,8 +45,11 @@ public class CreateAppoitmentServlet extends HttpServlet
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getSession(false).getAttribute("loginSession");
-        request.setAttribute("userId", request.getSession(false).getAttribute("loginSession"));
+        HttpSession session = request.getSession(true);
+        String user_id = session.getAttribute("user_id").toString();
+
+        request.setAttribute("user_id", user_id);
+
         request.setAttribute("customer_id", request.getParameter("customer_id"));
 
         request.getRequestDispatcher("/create_appointment.jsp").forward(request, response);

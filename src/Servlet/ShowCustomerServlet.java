@@ -29,15 +29,17 @@ public class ShowCustomerServlet extends HttpServlet implements ServletInterface
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        if(request.getSession(false).getAttribute("loginSession") != null)
+
+        HttpSession session = request.getSession(true);
+
+        String user_id = session.getAttribute("user_id").toString();
+
+        if(user_id != null)
         {
             System.out.println("SHOW CUSTOMERS");
             Customers customers = new Customers();
-            List<Customer> customerList = customers.getCustomers();
 
-            HttpSession session = request.getSession(true);
-
-            session.setAttribute("customers", customerList);
+            List<Customer> customerList = customers.getCustomers(user_id);
 
             request.setAttribute("customers", customerList);
 

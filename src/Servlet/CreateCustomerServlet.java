@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -40,8 +41,14 @@ public class CreateCustomerServlet extends HttpServlet implements ServletInterfa
     {
         System.out.println("Entering doGet Create Customer");
 
-        request.getSession(false).getAttribute("loginSession");
-        request.setAttribute("userId", request.getSession(false).getAttribute("loginSession"));
+        HttpSession session = request.getSession(true);
+        String user_id = session.getAttribute("user_id").toString();
+
+        if(user_id != null)
+        {
+            request.setAttribute("userId", user_id);
+        }
+
         request.getRequestDispatcher("/create_customers.jsp").forward(request, response);
     }
 

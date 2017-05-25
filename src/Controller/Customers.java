@@ -8,12 +8,12 @@ import java.util.List;
 public class Customers {
 
 
-        public List<Customer> getCustomers() // Retunere en liste af Customer objekter
+        public List<Customer> getCustomers(String user_id) // Retunere en liste af Customer objekter
         {
             CustomerHandler customerHandler = new CustomerHandler();
             List<Customer> customers;
 
-            customers = customerHandler.getCustomers();
+            customers = customerHandler.getCustomers(user_id);
             return customers;
         }
         //Kristain, Nichlas

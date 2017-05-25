@@ -103,9 +103,8 @@ public class CustomerHandler
         preparedStatement.setString(3, phoneNumber);
     }
 
-    public List<Customer> getCustomers() {
+    public List<Customer> getCustomers(String user_id) {
         PreparedStatement preparedStatement = null;
-        Statement smtp = null;
         ResultSet rs = null;
         Connection conn = null;
 
@@ -116,14 +115,16 @@ public class CustomerHandler
 
         List<Customer> customers = new ArrayList<Customer>();
 
-        String sql = "SELECT * FROM customers"; // WHERE SESSION USER_ID = ?
+        String sql = "SELECT * FROM customers INNER JOIN customers_to_user ON customers_to_user.customer_id = customers.customer_id WHERE customers_to_user.user_id = ? ORDER BY customer_first_name ASC"; // WHERE SESSION USER_ID = ?
 
         try {
 
             conn = databaseHandler.getConnection();
 
-            smtp = conn.createStatement();
-            rs = smtp.executeQuery(sql);
+            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, Integer.parseInt(user_id));
+
+            rs = preparedStatement.executeQuery();
 
             while (rs.next()) // Laver et nyt Customer objekt for hvert row i DB. Lager objekterne i en liste
             {
@@ -135,7 +136,7 @@ public class CustomerHandler
 
                 customers.add(customer);
             }
-            smtp.close();
+            preparedStatement.close();
             conn.close();
         }
         catch (SQLException e)
