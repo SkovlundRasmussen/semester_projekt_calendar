@@ -16,13 +16,16 @@
 
 <div class="wrapper">
     <table class="tbl">
+<div id="wrapper">
 
     <h1>Se tid</h1>
     <form action="/show_appointment" method="post"> <%-- Set action --%>
 
     <table>
         <thead>
-        <tr><%-- <th>ID</th>--%><th>Startstid</th><th>Antal timer</th><th>Kommentar</th><th>Rediger aftale</th><th>Slet aftale</th></tr>
+        <tr>
+            <th>ID</th><th>Startstid</th><th>Antal timer</th><th>Note</th><th>Rediger aftale</th>
+        </tr>
 
         </thead>
         <tbody>
@@ -33,7 +36,11 @@
                 <td><c:out value="${appointment.getAppointmentDate()}"/></td>
                 <td><c:out value="${appointment.getAppointmentLength()}"/></td>
                 <td><c:out value="${appointment.getAppointmentNote()}"/></td>
-                <td><c:url var="id_url" value="${appointment.getAppointmentID()}"/><a href="edit_appointment?appointment_id=${appointment.getAppointmentID()}">Rediger</a></td>
+                <td><c:url var="id_url" value="${appointment.getAppointmentID()}"/>
+                    <a href="edit_appointment?appointment_id=${appointment.getAppointmentID()}">Rediger</a></td>
+                <td><c:url var="id_url" value="${appointment.getAppointmentID()}"/>
+                    <a href="delete_appointment?appointment_id=${appointment.getAppointmentID()}">Slet</a></td>
+
             </tr>
         </c:forEach>
         </tbody>

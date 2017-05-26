@@ -1,7 +1,6 @@
 package Controller;
 
 import DataLayer.AppointmentHandler;
-import DataLayer.CalendarHandler;
 import DataLayer.CustomerHandler;
 import DataLayer.UserHandler;
 
@@ -28,6 +27,7 @@ public class Appointments {
         AppointmentHandler appointmentHandler = new AppointmentHandler();
         Appointment appointment = appointmentHandler.getAppointment(appointmentID);
         return appointment;
+
     }
 
     public void newAppointment(String appointmentStartDate, String appointmentSessionLength, String appointmentNote, String userId, String customerId)

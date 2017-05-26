@@ -24,9 +24,9 @@
            <%-- <li><a href="../user.jsp">Alle brugere</a></li>--%>
             <li><a href="../create_customers">Ny kunde</a></li>
             <li><a href="../show_customers">Alle kunder</a></li>
-            <li><a href="../create_appointment.jsp">Ny tid </a></li>
+            <%--<li><a href="../create_appointment.jsp">Ny tid </a></li>--%>
             <li><a href="../show_appointment">Alle tider </a></li>
-            <li><a href="../edit_user">Nyt password</a></li>
+            <li><a href="../edit_user">Skift password</a></li>
             <li><a href="">Logud</a></li>
         </ul>
     </nav>

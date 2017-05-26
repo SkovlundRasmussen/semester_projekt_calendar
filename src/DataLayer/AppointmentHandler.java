@@ -16,6 +16,11 @@ public class AppointmentHandler
 {
     DatabaseHandler databaseHandler = new DatabaseHandler();
 
+    public void deleteAppointment(String id)
+    {
+
+    }
+
     public void newAppointment (String appointmentStartDate, String appointmentSessionLength, String appointmentNote, String userId, String customerId) {
         PreparedStatement preparedStatement = null;
         Connection conn = null;
@@ -120,8 +125,14 @@ public class AppointmentHandler
         String appointmentSessionLength;
         String appointmentNote;
 
+        String sql = "SELECT * FROM appointments WHERE app_start_date ASC";
 
-        String sql = "SELECT app_id, app_start_date, app_session_length, app_note  FROM appointments WHERE app_id=?";
+/*
+        String sql = "SELECT * FROM appointments WHERE app_id = ? */
+/*AND app_app_start_date >= CURRENT_DATE*//*
+ ORDER BY app_start_date DESC";
+*/
+
 
 
         try{
