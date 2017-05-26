@@ -60,9 +60,8 @@ public class AppointmentHandler
         }
     }
 
-    public List<Appointment> getAppointments() {
+    public List<Appointment> getAppointments(String user_id) {
         PreparedStatement preparedStatement = null;
-        Statement smtp = null;
         ResultSet rs = null;
         Connection conn = null;
 
@@ -73,14 +72,17 @@ public class AppointmentHandler
 
         List<Appointment> appointments = new ArrayList<Appointment>();
 
-        String sql = "SELECT * FROM appointments"; // WHERE SESSION USER_ID = ?
+        String sql = "SELECT * FROM appointments INNER JOIN user_customer_app_link ON user_customer_app_link.app_id = appointments.app_id WHERE user_customer_app_link.user_id = ?"; // WHERE SESSION USER_ID = ?
 
         try {
 
             conn = databaseHandler.getConnection();
 
-            smtp = conn.createStatement();
-            rs = smtp.executeQuery(sql);
+
+            preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setInt(1, Integer.parseInt(user_id));
+
+            rs = preparedStatement.executeQuery();
 
             while (rs.next()) // Laver et nyt Appointment objekt for hvert row i DB. Lager objekterne i en liste
             {
@@ -92,7 +94,8 @@ public class AppointmentHandler
 
                 appointments.add(appointment);
             }
-            smtp.close();
+
+            preparedStatement.close();
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();

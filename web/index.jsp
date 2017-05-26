@@ -17,17 +17,36 @@
     <script>
         $(document).ready(function() {
         // page is now ready, initialize the calendar...
-        $('#calendar').fullCalendar({
-            // put your options and callbacks here
-            header:{
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay'
-            }
-        })
+            $.ajax({
+                url: 'calendar',
+                dataType: "json",
+                success: function(response) {
+                    $('#calendar').fullCalendar({
+                        header: {
+                            left: 'prev,next today',
+                            center: 'title',
+                            right: 'month,agendaWeek,agendaDay'
+                        },
+                        editable: false,
+                        axisFormat: 'H:mmtt',
+                        slotMinutes: 10,
+                        firstHour: 8,
+                        minTime: 8,
+                        maxTime: 22,
+                        // use "[response]" if only one event
+                        events: response
+                    });
+                }
+            });
 
 
     });
+
+        /*header:{
+         left: 'prev,next today',
+         center: 'title',
+         right: 'month,agendaWeek,agendaDay'
+         }*/
     </script>
   </head>
   <body>

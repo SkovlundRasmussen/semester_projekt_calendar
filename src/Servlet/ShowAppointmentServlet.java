@@ -26,11 +26,17 @@ public class ShowAppointmentServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("SHOW APPOINTMENTS");
         Appointments appointments = new Appointments();
-        List<Appointment> appointmentList = appointments.getAppointments();
 
         HttpSession session = request.getSession(true);
 
-        session.setAttribute("appointments", appointmentList);
+        String user_id = session.getAttribute("user_id").toString();
+
+        if(user_id != null)
+        {
+            List<Appointment> appointmentList = appointments.getAppointments(user_id);
+            request.setAttribute("appointments", appointmentList);
+        }
+
         /*
         request.setAttribute("customers", customerList);*/
 

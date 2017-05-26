@@ -1,6 +1,7 @@
 package Controller;
 
 import DataLayer.AppointmentHandler;
+import DataLayer.CalendarHandler;
 import DataLayer.CustomerHandler;
 import DataLayer.UserHandler;
 
@@ -13,12 +14,12 @@ import java.util.List;
  */
 public class Appointments {
 
-    public List<Appointment> getAppointments() // Returnere et Appointment Objekter
+    public List<Appointment> getAppointments(String user_id) // Returnere et Appointment Objekter
     {
         AppointmentHandler appointmentHandler = new AppointmentHandler();
         List<Appointment> appointments;
 
-        appointments = appointmentHandler.getAppointments();
+        appointments = appointmentHandler.getAppointments(user_id);
         return appointments;
     }
 
@@ -27,7 +28,6 @@ public class Appointments {
         AppointmentHandler appointmentHandler = new AppointmentHandler();
         Appointment appointment = appointmentHandler.getAppointment(appointmentID);
         return appointment;
-
     }
 
     public void newAppointment(String appointmentStartDate, String appointmentSessionLength, String appointmentNote, String userId, String customerId)
@@ -36,5 +36,14 @@ public class Appointments {
 
         appointmentHandler.newAppointment(appointmentStartDate, appointmentSessionLength, appointmentNote, userId, customerId);
 
+    }
+
+    public List<Calendar> getCalendars(String user_id) // Returnere et Appointment Objekter
+    {
+        CalendarHandler calendarHandler = new CalendarHandler();
+        List<Calendar> appointments;
+
+        appointments = calendarHandler.getAppointments(user_id);
+        return appointments;
     }
 }

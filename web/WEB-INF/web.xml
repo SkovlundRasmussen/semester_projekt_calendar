@@ -102,6 +102,12 @@
         <servlet-class>Servlet.LogoutServlet</servlet-class>
         <load-on-startup>4</load-on-startup>
     </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>EditAppointment</servlet-name>
         <servlet-class>Servlet.EditAppointmentServlet</servlet-class>
@@ -114,10 +120,15 @@
         <url-pattern>/edit_appointment</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Calendar</servlet-name>
+        <servlet-class>Servlet.CalendarServlet</servlet-class>
+        <load-on-startup>8</load-on-startup>
+    </servlet>
 
 
     <servlet-mapping>
-        <servlet-name>Logout</servlet-name>
-        <url-pattern>/logout</url-pattern>
+        <servlet-name>Calendar</servlet-name>
+        <url-pattern>/calendar</url-pattern>
     </servlet-mapping>
 </web-app>
