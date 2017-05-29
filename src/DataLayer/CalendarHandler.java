@@ -3,29 +3,42 @@ package DataLayer;
 import Controller.Appointment;
 import Controller.Calendar;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 public class CalendarHandler {
 
     DatabaseHandler databaseHandler = new DatabaseHandler();
+    public static final long HOUR = 3600*1000; // in milli-seconds.
 
     public List<Calendar> getAppointments(String user_id) {
         PreparedStatement preparedStatement = null;
         ResultSet rs = null;
         Connection conn = null;
+        Timestamp timestamp;
+        TimeZone tz = TimeZone.getTimeZone("GMT+1");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'");
+        df.setTimeZone(tz);
 
         String id;
-        String appointmentStartDate;
-        String appointmentSessionLength;
+        Date appointmentStartDate = null;
+        Date appointmentEndDate;
+        String convertedStartdate;
+        String convertedEndDate;
+        int appointmentSessionLength;
         String appointmentTitle;
-        String appointmentNote;
+
+        String appointmentNote; // Skal tilføjes hvis der er tid
 
         List<Calendar> appointments = new ArrayList<Calendar>();
+
 
         String sql = "SELECT * FROM appointments INNER JOIN user_customer_app_link ON user_customer_app_link.app_id = appointments.app_id INNER JOIN customers ON customers.customer_id = user_customer_app_link.customer_id WHERE user_customer_app_link.user_id = ?"; // WHERE SESSION USER_ID = ?
 
@@ -42,11 +55,29 @@ public class CalendarHandler {
             while (rs.next()) // Laver et nyt Appointment objekt for hvert row i DB. Lager objekterne i en liste
             {
                 id = rs.getString("app_id");
-                appointmentStartDate = rs.getString("app_start_date");
-             //   appointmentSessionLength = rs.getString("app_session_length");
+                appointmentSessionLength = rs.getInt("app_session_length");
+
+                timestamp = rs.getTimestamp("app_start_date");
+                if(timestamp != null)
+                {
+                    appointmentStartDate = new Date(timestamp.getTime());
+                }
+
+                appointmentEndDate = new Date(appointmentStartDate.getTime() + appointmentSessionLength * HOUR);
+
+                convertedStartdate = df.format(appointmentStartDate);
+                convertedEndDate = df.format(appointmentEndDate);
+
+                System.out.println(appointmentStartDate);
+                System.out.println(appointmentEndDate);
+                System.out.println("-------------");
+                System.out.println(convertedStartdate);
+                System.out.println(convertedEndDate);
+
                 appointmentTitle = rs.getString("customer_first_name") + " " + rs.getString("customer_last_name");
+
                 // appointmentNote = rs.getString("app_note");
-                Calendar calendar = new Calendar(id, appointmentTitle, appointmentStartDate);
+                Calendar calendar = new Calendar(id, appointmentTitle, convertedStartdate, convertedEndDate);
 
                 appointments.add(calendar);
             }

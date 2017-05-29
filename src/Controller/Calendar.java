@@ -8,13 +8,13 @@ public class Calendar {
     private String id;
     private String title;
     private String start;
-    //private String end;
+    private String end;
 
-    public Calendar(String id, String title, String start)
+    public Calendar(String id, String title, String start, String end)
     {
         this.id = id;
         this.title = title;
         this.start = start;
-        //this.end = end;
+        this.end = end;
     }
 }

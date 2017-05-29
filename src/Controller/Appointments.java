@@ -1,11 +1,7 @@
 package Controller;
 
 import DataLayer.AppointmentHandler;
-import DataLayer.CustomerHandler;
-import DataLayer.UserHandler;
-
-import java.sql.Date;
-import java.util.LinkedList;
+import DataLayer.CalendarHandler;
 import java.util.List;
 
 /**

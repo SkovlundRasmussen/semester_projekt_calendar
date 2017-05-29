@@ -27,8 +27,8 @@
                             center: 'title',
                             right: 'month,agendaWeek,agendaDay'
                         },
-                        editable: false,
-                        axisFormat: 'H:mmtt',
+                        editable: true,
+                        slotLabelFormat: 'HH:mm',
                         slotMinutes: 10,
                         firstHour: 8,
                         minTime: 8,
@@ -38,15 +38,7 @@
                     });
                 }
             });
-
-
     });
-
-        /*header:{
-         left: 'prev,next today',
-         center: 'title',
-         right: 'month,agendaWeek,agendaDay'
-         }*/
     </script>
   </head>
   <body>

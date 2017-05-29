@@ -41,23 +41,12 @@ public class CalendarServlet extends HttpServlet implements ServletInterface
         System.out.println("SHOW CALENDAR");
         Appointments appointments = new Appointments();
 
-
         List<Calendar> calendars;
 
         HttpSession session = request.getSession(true);
         String user_id = session.getAttribute("user_id").toString();
 
-
         calendars = appointments.getCalendars(user_id);
-
-
-/*
-        CalendarTest calendarTest = new CalendarTest("bob", "2017-05-05");
-
-        List<CalendarTest> calendarTestList = new ArrayList<>();
-
-        calendarTestList.add(calendarTest);
-*/
 
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
