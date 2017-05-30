@@ -1,25 +1,13 @@
 package DataLayer;
 
 import Controller.Appointment;
-import Controller.Customer;
-
 import java.sql.*;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-/**
- * Created by Jamie L. Ramsgaard on 5/18/2017.
- */
 public class AppointmentHandler
 {
     DatabaseHandler databaseHandler = new DatabaseHandler();
-
-    public void deleteAppointment(String id)
-    {
-
-    }
 
     public void newAppointment (String appointmentStartDate, String appointmentSessionLength, String appointmentNote, String userId, String customerId) {
         PreparedStatement preparedStatement = null;
@@ -64,6 +52,7 @@ public class AppointmentHandler
             databaseHandler.sqlEx(preparedStatement, conn);
         }
     }
+    //Kristian, Jamie
 
     public List<Appointment> getAppointments(String user_id) {
         PreparedStatement preparedStatement = null;
@@ -108,9 +97,9 @@ public class AppointmentHandler
             databaseHandler.sqlEx(preparedStatement, conn);
             if (rs != null) try { rs.close(); } catch (SQLException logOrIgnore) {}
         }
-//Slet senere
         return appointments;
     }
+    //Jamie
 
     public Appointment getAppointment (String appointmentId)
     {
@@ -125,15 +114,7 @@ public class AppointmentHandler
         String appointmentSessionLength;
         String appointmentNote;
 
-        String sql = "SELECT * FROM appointments WHERE app_start_date ASC";
-
-/*
-        String sql = "SELECT * FROM appointments WHERE app_id = ? */
-/*AND app_app_start_date >= CURRENT_DATE*//*
- ORDER BY app_start_date DESC";
-*/
-
-
+        String sql = "SELECT * FROM appointments WHERE app_id = ?";
 
         try{
             conn = databaseHandler.getConnection();
@@ -142,7 +123,7 @@ public class AppointmentHandler
             preparedStatement.setString(1, appointmentId);
             rs = preparedStatement.executeQuery();
 
-            if(rs.next()) // Kommer der et hit ud fra DB bliver der lavet et nyt Customer Objekt.
+            if(rs.next()) // Kommer der et hit fra DB bliver der lavet et nyt Customer Objekt.
             {
                 appointment_id = rs.getInt("app_id");
                 appointmentStartDate = rs.getString("app_start_date");
@@ -150,8 +131,6 @@ public class AppointmentHandler
                 appointmentNote = rs.getString("app_note");
 
                 appointment = new Appointment(appointment_id, appointmentStartDate, appointmentSessionLength, appointmentNote);
-
-                // Eksekvere return før finally?
                 return appointment;
             }
 
@@ -164,6 +143,8 @@ public class AppointmentHandler
         }
         return appointment;
     }
+    //Jamie
+
     public void editAppointment (String appointmentStartDate, String appointmentSessionLength, String appointmentNote, String id)
     {
         PreparedStatement preparedStatement = null;
@@ -185,7 +166,6 @@ public class AppointmentHandler
 
             preparedStatement.executeUpdate();
 
-            System.out.println("UPDATE");
             preparedStatement.close();
             conn.close();
         }
@@ -200,5 +180,6 @@ public class AppointmentHandler
             databaseHandler.sqlEx(preparedStatement, conn);
         }
     }
+    //Jamie
 
 }

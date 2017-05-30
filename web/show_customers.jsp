@@ -1,7 +1,8 @@
+<%--
+User: Kristian
+--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-
 <html>
 <head>
     <title>Title</title>
@@ -12,11 +13,10 @@
 <div class="wrapper">
     <table>
         <thead>
-        <tr><%--<th>ID</th>--%><th>Navn</th><th>Tlf</th><th>Rediger kunde</th><th>Opret tid</th></tr>
+        <tr><th>Navn</th><th>Tlf</th><th>Rediger kunde</th><th>Opret tid</th></tr>
         </thead>
 
-        <tbody><%--
-        <input type="text" name="userId" value="<c:out value="${user_id.getUserID()}"/>"/>--%>
+        <tbody>
         <c:forEach items="${customers}" var="customer">
             <tr>
                 <td><c:out value="${customer.getCustomerName()}"/> <c:out value="${customer.getCustomerLastname()}"/></td>
@@ -37,4 +37,4 @@
 <%@include file="includes/footer.jsp" %>
 </body>
 </html>
-<%--Kristain--%>
+

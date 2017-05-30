@@ -32,8 +32,6 @@ public class Customers {
             boolean error = false;
             CustomerHandler customerHandler = new CustomerHandler();
 
-      //      userId = userId.getCustomerID();
-
             if (ErrorHandler.IsAValidNumber(phoneNumber))
             {
                 error = true;
@@ -51,6 +49,7 @@ public class Customers {
                 customerHandler.newCustomer(firstName, lastName, phoneNumber, userId);
             }
         }
+        //Nichlas, Kristian
 
 
 }

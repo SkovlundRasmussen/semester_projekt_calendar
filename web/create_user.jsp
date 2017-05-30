@@ -1,9 +1,5 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: Toldam
-  Date: 16-May-17
-  Time: 13:34
-  To change this template use File | Settings | File Templates.
+User: Kristian
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -14,7 +10,6 @@
 
 <body>
     <%@include file="includes/header.jsp" %>
-</body>
 
     <div id="wrapper">
 
@@ -47,5 +42,5 @@
 
     </div>
     <%@include file="includes/footer.jsp" %>
-
+</body>
 </html>

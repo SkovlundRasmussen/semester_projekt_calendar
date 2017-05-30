@@ -17,8 +17,6 @@ public class CustomerHandler
         Connection conn = null;
 
         String sql = "UPDATE customers SET customer_first_name = ?, customer_last_name = ?, phone_nr = ? WHERE customer_id = ?;";
-
-
         try
         {
             conn = databaseHandler.getConnection();
@@ -48,7 +46,7 @@ public class CustomerHandler
             databaseHandler.sqlEx(preparedStatement, conn);
         }
     }
-
+//Nichlas
 
     public void newCustomer(String firstName, String lastName, String phoneNumber, String userId)
     {
@@ -95,6 +93,7 @@ public class CustomerHandler
             databaseHandler.sqlEx(preparedStatement, conn);
         }
     }
+//Kristian
 
     private void prepareStatements(String firstName, String lastName, String phoneNumber, PreparedStatement preparedStatement) throws SQLException
     {
@@ -133,7 +132,6 @@ public class CustomerHandler
                 last_name = rs.getString("customer_last_name");
                 phone_nr = rs.getString("phone_nr");
                 Customer customer = new Customer(id, first_name, last_name, phone_nr);
-
                 customers.add(customer);
             }
             preparedStatement.close();

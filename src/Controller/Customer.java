@@ -4,17 +4,17 @@ package Controller;
  * Created by Jamie L. Ramsgaard on 5/16/2017.
  */
 public class Customer {
-    private int customerID; //!
-    private String customerName; //!
-    private String customerLastname;
+    private int customerID;
+    private String customerName;
+    private String customerLastName;
     private String customerPhoneNumber;
 
 
-    public Customer(int customerID, String customerName, String customerLastname, String customerPhoneNumber)
+    public Customer(int customerID, String customerName, String customerLastName, String customerPhoneNumber)
     {
         this.customerID = customerID;
         this.customerName = customerName;
-        this.customerLastname = customerLastname;
+        this.customerLastName = customerLastName;
         this.customerPhoneNumber = customerPhoneNumber;
     }
 
@@ -32,11 +32,11 @@ public class Customer {
     }
 
     public String getCustomerLastname() {
-        return customerLastname;
+        return customerLastName;
     }
 
     public void setCustomerLastname(String customerLastname) {
-        this.customerLastname = this.customerLastname;
+        this.customerLastName = this.customerLastName;
     }
 
     public String getCustomerPhoneNumber() {

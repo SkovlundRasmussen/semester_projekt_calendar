@@ -1,21 +1,16 @@
+<%--
+User: Jamie
+--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
-<%
-    ArrayList appointmentsList = (ArrayList) session.getAttribute("appointments");
-    request.setAttribute("appointments", appointmentsList);
-%>
 <head>
     <title>Se tider</title>
 </head>
 <body>
 <%@include file="includes/header.jsp" %>
 
-
-<div class="wrapper">
-    <table class="tbl">
 <div id="wrapper">
 
     <h1>Se tid</h1>
@@ -24,7 +19,7 @@
     <table>
         <thead>
         <tr>
-            <th>ID</th><th>Startstid</th><th>Antal timer</th><th>Note</th><th>Rediger aftale</th>
+            <th>Startstid</th><th>Antal timer</th><th>Note</th><th>Rediger aftale</th>
         </tr>
 
         </thead>
@@ -38,14 +33,14 @@
                 <td><c:out value="${appointment.getAppointmentNote()}"/></td>
                 <td><c:url var="id_url" value="${appointment.getAppointmentID()}"/>
                     <a href="edit_appointment?appointment_id=${appointment.getAppointmentID()}">Rediger</a></td>
-                <td><c:url var="id_url" value="${appointment.getAppointmentID()}"/>
-                    <a href="delete_appointment?appointment_id=${appointment.getAppointmentID()}">Slet</a></td>
-
             </tr>
         </c:forEach>
         </tbody>
     </table>
+
+        <%@include file="includes/footer.jsp" %>
 </div>
+
+
 </body>
-<%@include file="includes/footer.jsp" %>
 </html>

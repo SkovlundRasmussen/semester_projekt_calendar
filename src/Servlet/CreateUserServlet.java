@@ -8,13 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by Nichlas B. Toldam on 17-05-2017.
- */
 @WebServlet(name = "CreateUserServlet")
 public class CreateUserServlet extends HttpServlet implements ServletInterface
 {
-    //Nichlas
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
@@ -30,30 +26,28 @@ public class CreateUserServlet extends HttpServlet implements ServletInterface
             request.setAttribute("errorMessage", "Ny bruger oprettet"); //Show confirm msg on html
             request.getRequestDispatcher("/create_user.jsp").forward(request, response);
         }
-
+        else
         {
             request.setAttribute("errorMessage", "Passwords stemmer ikke overens"); //Show confirm msg on html
             request.getRequestDispatcher("/create_user.jsp").forward(request, response);
         }
 
     }
-
     //Nichlas
+
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
 
     }
 
-    //Nichlas
     public void requestAttributes(HttpServletRequest request)
     {
-        //request.setAttribute("userTypeId", request.getParameter("userTypeId"));
         request.setAttribute("userName", request.getParameter("userName"));
         request.setAttribute("userPass", request.getParameter("userPass"));
         request.setAttribute("userPass2", request.getParameter("userPass2"));
     }
-
+    //Nichlas
 
 
 

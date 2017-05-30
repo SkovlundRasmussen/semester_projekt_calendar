@@ -3,7 +3,6 @@ package Servlet;
 import Controller.Appointment;
 import Controller.Appointments;
 import DataLayer.AppointmentHandler;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,29 +20,30 @@ public class EditAppointmentServlet extends HttpServlet {
         System.out.println("Entering EditCustomerServlet-doPost");
         AppointmentHandler appointmentHandler = new AppointmentHandler();
 
-        //users.newUser(request.getParameter("userName"), request.getParameter("userPass"));
-
         request.setAttribute("appointmentStartDate", request.getParameter("app_start_date"));
         request.setAttribute("appointmentSessionLength", request.getParameter("app_session_length"));
         request.setAttribute("appointmentNote", request.getParameter("app_note"));
 
         request.setAttribute("appointmentID", request.getParameter("app_id"));
 
-        appointmentHandler.editAppointment(request.getParameter("app_start_date"), request.getParameter("app_session_length"),
-                request.getParameter("app_note"), request.getParameter("app_id"));
+        appointmentHandler.editAppointment(request.getParameter("app_start_date"), request.getParameter("app_session_length"), request.getParameter("app_note"), request.getParameter("app_id"));
 
-        request.getRequestDispatcher("/show_appointment").forward(request, response);
+        response.sendRedirect("/show_appointment");
     }
+    //Jamie
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("EDIT APPOINTMENT");
         Appointments appointments = new Appointments();
 
-        Appointment appointment = appointments.getAppointment(request.getParameter("appointment_id"));
+        String appointmentId = request.getParameter("appointment_id");
+        Appointment appointment = appointments.getAppointment(appointmentId);
         HttpSession getAppointmentSession = request.getSession(true);
 
         getAppointmentSession.setAttribute("appointment", appointment);
 
         request.getRequestDispatcher("/edit_appointment.jsp").forward(request, response);
     }
+    //Jamie
 }

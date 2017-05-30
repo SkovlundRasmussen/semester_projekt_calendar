@@ -10,16 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
-/**
- * Created by Tolda on 20-05-2017.
- */
 //Nichlas
 @WebServlet(name = "CalendarServlet")
 public class CalendarServlet extends HttpServlet implements ServletInterface
@@ -27,11 +20,6 @@ public class CalendarServlet extends HttpServlet implements ServletInterface
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        int monthInt;
-        int yearInt;
-
-        //appointmentStartDate
-        //appointmentSessionLength
 
     }
 
@@ -53,7 +41,7 @@ public class CalendarServlet extends HttpServlet implements ServletInterface
         PrintWriter out = response.getWriter();
         out.write(new Gson().toJson(calendars));
     }
-
+    //Kristian
 
 }
 

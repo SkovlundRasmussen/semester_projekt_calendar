@@ -1,3 +1,6 @@
+<%--
+User: Kristian
+--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -10,8 +13,6 @@
 
 <body>
 <%@include file="includes/header.jsp" %>'
-
-</body>
 
 <div id="wrapper">
 
@@ -42,5 +43,7 @@
 
 </div>
 <%@include file="includes/footer.jsp" %>
+
+</body>
 
 </html>

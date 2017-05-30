@@ -16,15 +16,12 @@ public class Users
     private List getUserList()
     {
         List<User> userList = new LinkedList<>();
-
         return userList;
     }
 
     public void newUser(String userName, String userPass)
     {
-
         userHandler.newUser(userName, userPass);
-
     }
 
 

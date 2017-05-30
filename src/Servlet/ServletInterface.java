@@ -13,3 +13,4 @@ public interface ServletInterface
     void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
     void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException;
 }
+//Nichlas

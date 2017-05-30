@@ -37,9 +37,7 @@ public class ShowAppointmentServlet extends HttpServlet {
             request.setAttribute("appointments", appointmentList);
         }
 
-        /*
-        request.setAttribute("customers", customerList);*/
-
         request.getRequestDispatcher("/show_appointments.jsp").forward(request, response);
     }
+    //Jamie, Kristian
 }

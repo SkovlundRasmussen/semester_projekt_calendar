@@ -1,9 +1,5 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: krist
-  Date: 16-May-17
-  Time: 10:53
-  To change this template use File | Settings | File Templates.
+User: Kristian
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -15,20 +11,21 @@
 
     <title>Calendar</title>
     <script>
-        $(document).ready(function() {
+       $(document).ready(function() {
         // page is now ready, initialize the calendar...
             $.ajax({
                 url: 'calendar',
                 dataType: "json",
                 success: function(response) {
                     $('#calendar').fullCalendar({
+                        locale: 'da',
                         header: {
                             left: 'prev,next today',
                             center: 'title',
-                            right: 'month,agendaWeek,agendaDay'
+                            right: 'month'
                         },
+
                         editable: true,
-                        slotLabelFormat: 'HH:mm',
                         slotMinutes: 10,
                         firstHour: 8,
                         minTime: 8,
@@ -39,6 +36,7 @@
                 }
             });
     });
+
     </script>
   </head>
   <body>

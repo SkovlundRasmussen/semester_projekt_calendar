@@ -1,3 +1,6 @@
+<%--
+User: Kristian
+--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -7,7 +10,7 @@
 
 <body>
 <%@include file="includes/header.jsp" %>
-</body>
+
 
 <div id="wrapper">
 
@@ -16,14 +19,11 @@
     <form action="/edit_user" method="post">
 
         <div>
-            <label name="current-user">Skift password for:</label>
+            <label name="current-user">Skift password for: <c:out value="${user_name}"/></label>
         </div>
+        <br>
         <div>
-            <label id="logInUserName"><c:out value="${user.getUserName()}"/></label>
-        </div>
-
-        <div>
-            <input type="hidden" id="userID" name="userID" value="<c:out value="${user.getUserID()}"/>"/>
+            <input type="hidden" id="userID" name="userID" value="<c:out value="${user_id}"/>"/>
             <label for="new-password-label">Indtast nyt password:</label>
             <input type="password" name="userPass" width="30" id="new-password-label"/>
         </div>
@@ -42,4 +42,5 @@
     </form>
     <%@include file="includes/footer.jsp" %>
 </div>
+</body>
 </html>

@@ -25,11 +25,12 @@ public class LogoutServlet extends HttpServlet {
             request.getSession().removeAttribute("user_id");
             request.getSession().removeAttribute("user_name");
             request.getSession().removeAttribute("user_type");
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            response.sendRedirect("/login.jsp");
         }
         else
         {
-            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            response.sendRedirect("/login.jsp");
         }
     }
+    //Kristian
 }

@@ -13,9 +13,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by krist on 18-May-17.
- */
 @WebServlet(name = "ShowCustomerServlet")
 public class ShowCustomerServlet extends HttpServlet implements ServletInterface
 {
@@ -29,29 +26,22 @@ public class ShowCustomerServlet extends HttpServlet implements ServletInterface
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-
         HttpSession session = request.getSession(true);
-
         String user_id = session.getAttribute("user_id").toString();
 
         if(user_id != null)
         {
-            System.out.println("SHOW CUSTOMERS");
             Customers customers = new Customers();
-
             List<Customer> customerList = customers.getCustomers(user_id);
-
             request.setAttribute("customers", customerList);
-
             request.getRequestDispatcher("/show_customers.jsp").forward(request, response);
         }
         else
         {
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
-
-
     }
+    //Kristian
 
 
 

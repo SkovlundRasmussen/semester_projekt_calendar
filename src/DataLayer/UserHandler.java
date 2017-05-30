@@ -1,16 +1,7 @@
 package DataLayer;
 
-import Controller.User;
-
 import java.sql.*;
 
-import java.util.*;
-import java.util.Date;
-
-
-/**
- * Created by Nichlas B. Toldam 17-05-2017.
- */
 public class UserHandler
 {
 
@@ -49,6 +40,7 @@ public class UserHandler
             databaseHandler.sqlEx(preparedStatement, conn);
         }
     }
+    //Kristian
 
     public void editUser(String password, String userID)
     {
@@ -85,6 +77,6 @@ public class UserHandler
         }
 
     }
-
+//Peter
 }
 

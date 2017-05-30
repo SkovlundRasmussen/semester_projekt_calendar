@@ -1,9 +1,5 @@
 <%--
-  Created by IntelliJ IDEA.
-  User: krist
-  Date: 16-May-17
-  Time: 13:34
-  To change this template use File | Settings | File Templates.
+Nichlas
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -39,8 +35,6 @@
         <p style="color:red;">${errorMessage}</p>
 
     </div>
-
-
     </body>
 
 </html>

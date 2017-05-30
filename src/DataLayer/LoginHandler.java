@@ -2,17 +2,11 @@
 package DataLayer;
 
 import Controller.User;
-
 import java.sql.*;
 
-/**
- * Created by Tolda on 16-05-2017.
- */
 public class LoginHandler {
 
     DatabaseHandler databaseHandler = new DatabaseHandler();
-
-
 
     public User isValidUserLogin(String sUSerName, String sUserPassword){
 
@@ -60,4 +54,5 @@ public class LoginHandler {
 
         return user;
     }
+    //Krsitian
 }

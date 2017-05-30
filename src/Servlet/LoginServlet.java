@@ -20,7 +20,8 @@ public class LoginServlet extends HttpServlet {
         request.setAttribute("username", request.getParameter("loginname"));
         request.setAttribute("password", request.getParameter("password"));
 
-        if (login.isValidUserCredentials(request.getParameter("loginname"), request.getParameter("password")) != null) {
+        if (login.isValidUserCredentials(request.getParameter("loginname"), request.getParameter("password")) != null)
+        {
 
             HttpSession loginSession = request.getSession(true);
             User user = login.isValidUserCredentials(request.getParameter("loginname"), request.getParameter("password"));
@@ -30,11 +31,14 @@ public class LoginServlet extends HttpServlet {
             loginSession.setAttribute("user_type", user.getUserType());
 
             request.getRequestDispatcher("/index.jsp").forward(request, response);
-        } else{
+        }
+        else
+        {
             request.setAttribute("errorMessage", "Invalid login and password. Try again");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
     }
+    //Kristian, Jamie
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

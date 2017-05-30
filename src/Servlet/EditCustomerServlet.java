@@ -2,9 +2,7 @@ package Servlet;
 
 import Controller.Customer;
 import Controller.Customers;
-import DataLayer.AppointmentHandler;
 import DataLayer.CustomerHandler;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,18 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Created by krist on 22-May-17.
- */
 @WebServlet(name = "EditCustomerServlet")
 public class EditCustomerServlet extends HttpServlet {
 
-    //Nichlas
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("Entering EditAppointmentServlet-doPost");
         CustomerHandler customerHandler = new CustomerHandler();
-
-        //users.newUser(request.getParameter("userName"), request.getParameter("userPass"));
 
         request.setAttribute("firstName", request.getParameter("firstName"));
         request.setAttribute("lastName", request.getParameter("lastName"));
@@ -33,10 +26,10 @@ public class EditCustomerServlet extends HttpServlet {
 
         customerHandler.editCustomer(request.getParameter("firstName"), request.getParameter("lastName"), request.getParameter("phoneNumber"), request.getParameter("customerID"));
 
-        request.getRequestDispatcher("/show_customers").forward(request, response);
+        response.sendRedirect("/show_customers");
     }
+    //Nichlas
 
-    //Kristian
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("EDIT CUSTOMERS");
         Customers customers = new Customers();
@@ -48,6 +41,6 @@ public class EditCustomerServlet extends HttpServlet {
 
         request.getRequestDispatcher("/edit_customer.jsp").forward(request, response);
     }
-
+    //Kristian
 
 }

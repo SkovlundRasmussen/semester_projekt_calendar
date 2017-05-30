@@ -6,8 +6,8 @@ package Controller;
 public class ErrorHandler
 {
 
-    //Nichlas: validation if phone number contains anything other than Int values
-    public static boolean IsAValidNumber(String phoneNumber)
+
+    public static boolean IsAValidNumber(String phoneNumber) //validation if phone number contains anything other than Int values
     {
         try
         {
@@ -22,9 +22,9 @@ public class ErrorHandler
             return true;
         }
     }
+    //Nichlas
 
-    //Nichlas: validation if name contains a integer
-    public static boolean IsAValidName(String name)
+    public static boolean IsAValidName(String name) // validation if name contains a integer
     {
         boolean containsNumber = false;
         char chars[] = name.toCharArray(); //transform String to char array
@@ -39,5 +39,5 @@ public class ErrorHandler
         }
         return  containsNumber;
     }
-
+    //Nichlas
 }

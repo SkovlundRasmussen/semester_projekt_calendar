@@ -1,11 +1,6 @@
 package DataLayer;
 import java.sql.*;
 
-/**
- * Created by Toldam on 16-05-2017.
- */
-
-
 public class DatabaseHandler
 {
     //Connect to DB
@@ -38,8 +33,6 @@ public class DatabaseHandler
             //Handle errors for Class.forName
             e.printStackTrace();
         }
-
-
         return null;
     }
 
